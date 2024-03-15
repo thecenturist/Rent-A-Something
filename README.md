@@ -25,5 +25,5 @@ HashTables of renter names and items rented
 - LO6: Construct programs utilizing graphical user interface utilizing event-driven programming.
 - LO7: Construct programs utilizing exception handling.
 - LO8: Construct programs utilizing text file I/O
-- - Have something exportable to a file and/or readable from a file
-- - - Readable based on provided data of renter names and item rented?
+    - Have something exportable to a file and/or readable from a file
+        - Readable based on provided data of renter names and item rented?
