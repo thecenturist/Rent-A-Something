@@ -14,3 +14,16 @@ Our resort and housing complex is opening at La Jolla Cove, and we need an appli
 6. Delete a product from inventory.
 7. Delete a Person from the system.
 8. View an About screen telling about the application and its creator(s).
+
+## Learning Outcomes
+- LO1: Employ design principles of object-oriented programming.
+- LO2: Construct programs utilizing single and multidimensional arrays.
+- LO3: Construct programs utilizing objects and classes in object-oriented programming, including aggregation.
+- LO4: Construct programs utilizing inheritance and polymorphism, including abstract classes and interfaces.
+- LO5: Construct programs using generic collections and data structures.
+HashTables of renter names and items rented
+- LO6: Construct programs utilizing graphical user interface utilizing event-driven programming.
+- LO7: Construct programs utilizing exception handling.
+- LO8: Construct programs utilizing text file I/O
+- - Have something exportable to a file and/or readable from a file
+- - - Readable based on provided data of renter names and item rented?
