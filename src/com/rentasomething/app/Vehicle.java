@@ -8,34 +8,30 @@ package com.rentasomething.app;
  * Version/date: March-9-2024
  * 
  * Responsibilities of class:
- * Model a Vehicle object which is Rental product
+ * Model a Vehicle object which is Product
  */
 
-// A Vehicle is-a Rental
-public class Vehicle implements Rental
+// A Vehicle is-a Product
+public class Vehicle extends Product
 {
 	private String manufacturer; // A Vehicle has-a manufacturer
 	private String model; // A Vehicle has-a model
 	private int year; // A Vehicle has-a year
-	private double rentAmount; // A Vehicle has-a rentAmount
-	private double discountPercent; // A Vehicle has-a discountPercent
-	
-	Vehicle(String manufacturer, String model, int year)
-	{
-		this.manufacturer = manufacturer;
-		this.model = model;
-		this.year = year;
-		this.rentAmount = 0.0;
-		this.discountPercent = 0.0;
-	}
 	
 	Vehicle(String manufacturer, String model, int year, double rent, double discount)
 	{
+		super(rent, discount);
 		this.manufacturer = manufacturer;
 		this.model = model;
 		this.year = year;
-		this.rentAmount = rent;
-		this.discountPercent = discount;
+	}
+	
+	Vehicle(String manufacturer, String model, int year)
+	{
+		super(0,0);
+		this.manufacturer = manufacturer;
+		this.model = model;
+		this.year = year;
 	}
 	
 	/**
@@ -60,42 +56,6 @@ public class Vehicle implements Rental
 	 */
 	public int getYear() {
 		return this.year;
-	}
-
-	/**
-	 * Return the rent amount per hour of the Vehicle
-	 * @return double
-	 */
-	public double getRentAmount()
-	{
-		return this.rentAmount;
-	}
-
-	/**
-	 * Set the rent amount of the Vehicle
-	 * @param rent
-	 */
-	public void setRentAmount(double rent)
-	{
-		this.rentAmount = rent;
-	}
-
-	/**
-	 * Set discount percentage of the Vehicle's rent
-	 * @param discount
-	 */
-	public void setDiscountPercentage(double discount)
-	{
-		this.discountPercent = discount;
-	}
-
-	/**
-	 * Return the discount percentage of the Vehicle
-	 * @return double
-	 */
-	public double getDiscountPercentage()
-	{
-		return this.discountPercent;
 	}
 	
 }
