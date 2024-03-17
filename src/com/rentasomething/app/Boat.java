@@ -50,7 +50,7 @@ public class Boat extends Vehicle
 	 * @return double
 	 */
 	public double getTopSpeed() {
-		return this.length;
+		return this.topSpeed;
 	}
 	
 	/**
