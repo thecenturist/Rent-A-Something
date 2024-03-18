@@ -58,4 +58,12 @@ public class Person
     public String getFullName(){
         return this.firstName + " " + this.lastName;
     }
+
+	/**
+	 * Return the details of the Person
+	 * @return String
+	 */
+	public String toString(){
+		return this.firstName + " " + this.lastName + " " + this.socialSecurityNumber;
+	}
 }
