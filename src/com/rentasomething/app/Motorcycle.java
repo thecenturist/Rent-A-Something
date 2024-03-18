@@ -24,7 +24,7 @@ public class Motorcycle extends Vehicle
             super(manufacturer, model, year);
         }
         
-        public Motorcycle(String manufacturer, String model, int weight, int powerOutput)
+        public Motorcycle(String manufacturer, String model, int year, int weight, int powerOutput)
         {
             super(manufacturer, model, year);
             this.weight = weight;
