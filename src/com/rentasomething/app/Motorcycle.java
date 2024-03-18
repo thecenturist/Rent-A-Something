@@ -14,9 +14,9 @@ package com.rentasomething.app;
 // A Motorcycle is-a Vehicle
 public class Motorcycle extends Vehicle
 {
-        // A Motorycycle has-a weight, in kilograms
+        // A Motorcycle has-a weight, in kilograms
         private double weight;
-        // A Boat has-a powerOutput, in CC
+        // A Motorcycle has-a powerOutput, in CC
         private double powerOutput;
         
         public Motorcycle(String manufacturer, String model, int year)
