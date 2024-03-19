@@ -33,4 +33,23 @@ class UnitTesting {
 		assertEquals("Amie Johnston", p1.getFullName());
 		assertEquals("Amie Johnston 9998883332", p1.toString());
 	}
+	
+	@Test
+	void testVehicle() {
+		Vehicle v1 = new Vehicle("Nissan", "Maxima", 2021);
+		assertEquals("Nissan", v1.getManufacturer());
+		assertEquals("Maxima", v1.getModel());
+		assertEquals(2021, v1.getYear());
+		v1.setManufacturer("Toyota");
+		assertEquals("Toyota", v1.getManufacturer());
+		v1.setModel("Camry");
+		assertEquals("Camry", v1.getModel());
+		v1.setYear(2022);
+		assertEquals(2022, v1.getYear());
+		assertEquals(0, v1.getRentAmount());
+		assertEquals(0, v1.getDiscountPercentage());
+		Vehicle v2 = new Vehicle("Acura", "TRX", 2020, 60.50, 4.0);
+		assertEquals(60.5, v2.getRentAmount());
+		assertEquals(4, v2.getDiscountPercentage());
+	}
 }
