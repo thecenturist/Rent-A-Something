@@ -58,4 +58,28 @@ public class Vehicle extends Product
 		return this.year;
 	}
 	
+	/**
+	 * Set the manufacturer of the Vehicle
+	 * @param value
+	 */
+	public void setManufacturer(String value) {
+		this.manufacturer = value;
+	}
+	
+	/**
+	 * Set the model of the Vehicle
+	 * @param value
+	 */
+	public void setModel(String value) {
+		this.model = value;
+	}
+	
+	/**
+	 * Set the year of the Vehicle
+	 * @param value
+	 */
+	public void setYear(int value) {
+		this.year = value;
+	}
+	
 }
