@@ -49,7 +49,7 @@ public class Motorcycle extends Vehicle
             return this.weight;
         }
     
-            /**
+        /**
          * Set the power output (cc) of the Motorcycle
          * @param powerOutput
          */
