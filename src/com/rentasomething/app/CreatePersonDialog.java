@@ -6,15 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
 
 // A CreatePersonDialog is-a JDialog
 public class CreatePersonDialog extends JDialog
@@ -24,9 +20,8 @@ public class CreatePersonDialog extends JDialog
     	this.setLayout(ex);
     	this.setSize(new Dimension(500, 700));
     	this.setResizable(false);
-    	JLabel dialogHeading = new JLabel("Create a Person");
     	
-    	
+		// First Name Input Panel
     	JPanel firstNamePanel = new JPanel();
     	JLabel firstNameLabel = new JLabel("First Name: ");
     	JTextField firstNameTextField = new JTextField("");
@@ -34,7 +29,7 @@ public class CreatePersonDialog extends JDialog
     	firstNamePanel.add(firstNameLabel);
     	firstNamePanel.add(firstNameTextField);
     	
-    	
+		// Last Name Input Panel
     	JPanel lastNamePanel = new JPanel();
     	JLabel lastNameLabel = new JLabel("Last Name: ");
     	JTextField lastNameTextField = new JTextField("");
@@ -42,7 +37,7 @@ public class CreatePersonDialog extends JDialog
     	lastNamePanel.add(lastNameLabel);
     	lastNamePanel.add(lastNameTextField);
     	
-    	
+		// Social Security Number Input Panel
     	JPanel ssnPanel = new JPanel();
     	JLabel ssnLabel = new JLabel("SSN: ");
     	JTextField ssnTextField = new JTextField("");
@@ -50,6 +45,7 @@ public class CreatePersonDialog extends JDialog
     	ssnPanel.add(ssnLabel);
     	ssnPanel.add(ssnTextField);
 
+		// Submit Button Panel
         JPanel submitPanel = new JPanel();
         JButton submitButton = new JButton("Create");
         submitPanel.add(submitButton);
@@ -77,9 +73,7 @@ public class CreatePersonDialog extends JDialog
     	this.add(ssnPanel);
         this.add(submitPanel);
     	
-//    	this.add(dialogHeading);
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-//        this.setVisible(true);
 	}
 
     boolean inputValidation(String first, String last, String ssn){
@@ -89,6 +83,7 @@ public class CreatePersonDialog extends JDialog
 			return false;
 		}
 
+		// A Social Security Number must be 10 digits
 		if (ssn.length() != 10){
 			return false;
 		}
