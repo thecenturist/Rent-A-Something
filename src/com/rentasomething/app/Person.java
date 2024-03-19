@@ -15,9 +15,9 @@ public class Person
 {
 	private String firstName; // A Person has-a firstName
 	private String lastName; // A Person has-a lastName
-	private int socialSecurityNumber; // A Person has-a socialSecurityNumber
+	private long socialSecurityNumber; // A Person has-a socialSecurityNumber
 	
-	Person(String first, String last, int ssn){
+	Person(String first, String last, long ssn){
 		this.firstName = first;
 		this.lastName = last;
 		this.socialSecurityNumber = ssn;
@@ -29,9 +29,9 @@ public class Person
 	
 	/**
 	 * Return the social security number of the Person
-	 * @return int
+	 * @return long
 	 */
-	public int getSSN() {
+	public long getSSN() {
         return this.socialSecurityNumber;
     }
 	
@@ -57,6 +57,30 @@ public class Person
 	 */
     public String getFullName(){
         return this.firstName + " " + this.lastName;
+    }
+    
+    /**
+     * Set the last name of the Person
+     * @param name
+     */
+    public void setLastName(String name) {
+    	this.lastName = name;
+    }
+    
+    /**
+     * Set the first name of the Person
+     * @param name
+     */
+    public void setFirstName(String name) {
+    	this.firstName = name;
+    }
+    
+    /**
+     * Set the social security number of the Person
+     * @param ssn
+     */
+    public void setSSN(long ssn) {
+    	this.socialSecurityNumber = ssn;
     }
 
 	/**
