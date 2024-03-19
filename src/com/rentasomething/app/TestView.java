@@ -35,6 +35,8 @@ public class TestView
 		menuBar.add(createMenu);
 		menuBar.add(helpMenu);
 		mainFrame.setJMenuBar(menuBar);
+
+		createPersonItem.addActionListener(new DialogListener(new CreatePersonDialog()));
 		
 		mainFrame.setVisible(true);
 		
