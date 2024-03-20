@@ -22,6 +22,10 @@ public class Car extends Vehicle
 		this.odometerReading = mileage;
 	}
 	
+	Car(Vehicle vehicle, double mileage){
+		this(vehicle.getManufacturer(), vehicle.getModel(), vehicle.getYear(), mileage);
+	}
+	
 	/**
 	 * Return the value of the odometer reading
 	 * @return double
