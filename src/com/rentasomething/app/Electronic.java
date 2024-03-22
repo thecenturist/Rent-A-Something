@@ -23,18 +23,18 @@ public class Electronic extends Product
         private String brand;
         // A Electronic has-a model
         private String model;
-        
-        public Electronic(String manufacturer, String brand, String model, double rent, double discount)
+
+        public Electronic(String manufacturer, String brand, String model)
         {
-            super(rent, discount);
+            super(0,0);
             this.manufacturer = manufacturer;
             this.brand = brand;
             this.model = model;
         }
         
-        public Electronic(String manufacturer, String brand, String model)
+        public Electronic(String manufacturer, String brand, String model, double rent, double discount)
         {
-            super(0,0);
+            super(rent, discount);
             this.manufacturer = manufacturer;
             this.brand = brand;
             this.model = model;
