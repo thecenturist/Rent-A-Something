@@ -41,7 +41,8 @@ public class Phone extends Electronic
          * Set the mass of the Phone
          * @param mass
          */
-        public void setMass(int mass) {
+        public void setMass(int mass) 
+        {
             this.mass = mass;
         }
         
@@ -49,7 +50,8 @@ public class Phone extends Electronic
          * Set the CPU of the Phone
          * @param CPU
          */
-        public void setCPU(String CPU) {
+        public void setCPU(String CPU) 
+        {
             this.CPU = CPU;
         }
 
@@ -57,7 +59,8 @@ public class Phone extends Electronic
          * Set the number of cameras of the Phone
          * @param numberOfCameras
          */
-        public void setNumberOfCameras(int numberOfCameras) {
+        public void setNumberOfCameras(int numberOfCameras) 
+        {
             this.numberOfCameras = numberOfCameras;
         }
         
@@ -65,7 +68,8 @@ public class Phone extends Electronic
          * Return the mass of the Phone
          * @return int
          */
-        public int getMass() {
+        public int getMass() 
+        {
             return this.mass;
         };
         
@@ -73,7 +77,8 @@ public class Phone extends Electronic
          * Return the CPU of the Phone
          * @return String
          */
-        public String getCPU() {
+        public String getCPU() 
+        {
             return this.CPU;
         }
 
@@ -81,7 +86,8 @@ public class Phone extends Electronic
          * Return the number of cameras of the Phone
          * @return int
          */
-        public int getNumberOfCameras() {
+        public int getNumberOfCameras() 
+        {
             return this.numberOfCameras;
         }
 
