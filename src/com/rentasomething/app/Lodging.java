@@ -40,7 +40,8 @@ public class Lodging extends Product
          * Set the renter name of the Lodging
          * @param manufacturer
          */
-        public void setRenterName(String renterName) {
+        public void setRenterName(String renterName) 
+        {
             this.renterName = renterName;
         }
         
@@ -48,7 +49,8 @@ public class Lodging extends Product
          * Set the max capacity of the Lodging
          * @param maxCapacity
          */
-        public void setMaxCapacity(int maxCapacity) {
+        public void setMaxCapacity(int maxCapacity) 
+        {
             this.maxCapacity = maxCapacity;
         }
         
@@ -56,7 +58,8 @@ public class Lodging extends Product
          * Return the renter name of the Lodging
          * @return String
          */
-        public String getRenterName() {
+        public String getRenterName() 
+        {
             return this.renterName;
         };
         
@@ -64,7 +67,8 @@ public class Lodging extends Product
          * Return the max capacity of the Lodging
          * @return int
          */
-        public int getMaxCapacity() {
+        public int getMaxCapacity() 
+        {
             return this.maxCapacity;
         } 
 
