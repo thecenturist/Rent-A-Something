@@ -44,7 +44,8 @@ public class Electronic extends Product
          * Set the manufacturer of the Electronic
          * @param manufacturer
          */
-        public void setManufacturer(String manufacturer) {
+        public void setManufacturer(String manufacturer) 
+        {
             this.manufacturer = manufacturer;
         }
         
@@ -52,7 +53,8 @@ public class Electronic extends Product
          * Set the brand of the Electronic
          * @param brand
          */
-        public void setBrand(String brand) {
+        public void setBrand(String brand) 
+        {
             this.brand = brand;
         }
 
@@ -60,7 +62,8 @@ public class Electronic extends Product
          * Set the model of the Electronic
          * @param model
          */
-        public void setModel(String model) {
+        public void setModel(String model) 
+        {
             this.model = model;
         }
         
@@ -68,7 +71,8 @@ public class Electronic extends Product
          * Return the manufacturer of the Electronic
          * @return String
          */
-        public String getManufacturer() {
+        public String getManufacturer() 
+        {
             return this.manufacturer;
         };
         
@@ -76,7 +80,8 @@ public class Electronic extends Product
          * Return the brand of the Electronic
          * @return String
          */
-        public String getBrand() {
+        public String getBrand() 
+        {
             return this.brand;
         }
 
@@ -84,7 +89,8 @@ public class Electronic extends Product
          * Return the model of the Electronic
          * @return String
          */
-        public String getModel() {
+        public String getModel() 
+        {
             return this.model;
         }
         
