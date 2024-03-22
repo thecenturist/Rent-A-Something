@@ -44,7 +44,8 @@ public class Camera extends Electronic
          * Set the megapixels of the Camera
          * @param megapixels
          */
-        public void setMegapixels(int megapixels) {
+        public void setMegapixels(int megapixels) 
+        {
             this.megapixels = megapixels;
         }
         
@@ -52,7 +53,8 @@ public class Camera extends Electronic
          * Set the sensor width of the Camera
          * @param sensorWidth
          */
-        public void setSensorWidth(int sensorWidth) {
+        public void setSensorWidth(int sensorWidth) 
+        {
             this.sensorWidth = sensorWidth;
         }
 
@@ -60,7 +62,8 @@ public class Camera extends Electronic
          * Set the sensor length of the Camera
          * @param sensorLength
          */
-        public void setSensorLength(int sensorLength) {
+        public void setSensorLength(int sensorLength) 
+        {
             this.sensorLength = sensorLength;
         }
 
@@ -68,7 +71,8 @@ public class Camera extends Electronic
          * Set the sensor area of the Camera
          * @param sensorArea
          */
-        public void setSensorArea(int sensorArea) {
+        public void setSensorArea(int sensorArea) 
+        {
             this.sensorArea = sensorArea;
         }
         
@@ -76,7 +80,8 @@ public class Camera extends Electronic
          * Return the megapixels of the Camera
          * @return int
          */
-        public int getMegapixels() {
+        public int getMegapixels() 
+        {
             return this.megapixels;
         };
         
@@ -84,7 +89,8 @@ public class Camera extends Electronic
          * Return the sensor width of the Camera
          * @return int
          */
-        public int getSensorWidth() {
+        public int getSensorWidth() 
+        {
             return this.sensorWidth;
         }
 
@@ -92,7 +98,8 @@ public class Camera extends Electronic
          * Return the sensor length of the Camera
          * @return int
          */
-        public int getSensorLength() {
+        public int getSensorLength() 
+        {
             return this.sensorLength;
         }
         
@@ -100,7 +107,8 @@ public class Camera extends Electronic
          * Return the sensor area of the Camera
          * @return int
          */
-        public int getSensorArea() {
+        public int getSensorArea() 
+        {
             return this.sensorArea;
         }
 
