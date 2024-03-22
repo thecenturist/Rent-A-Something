@@ -26,7 +26,7 @@ public class Electronic extends Product
 
         public Electronic(String manufacturer, String brand, String model)
         {
-            super(rent, discount);
+            super(0, 0);
             this.manufacturer = manufacturer;
             this.brand = brand;
             this.model = model;
