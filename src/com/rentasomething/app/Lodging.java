@@ -46,7 +46,7 @@ public class Lodging extends Product
         
         /**
          * Set the max capacity of the Lodging
-         * @param brand
+         * @param maxCapacity
          */
         public void setMaxCapacity(int maxCapacity) {
             this.maxCapacity = maxCapacity;
