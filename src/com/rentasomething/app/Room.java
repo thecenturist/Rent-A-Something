@@ -38,7 +38,8 @@ public class Room extends Lodging
          * Set the room number of the Room
          * @param roomNumber
          */
-        public void setRoomNumber(int roomNumber) {
+        public void setRoomNumber(int roomNumber) 
+        {
             this.roomNumber = roomNumber;
         }
         
@@ -46,7 +47,8 @@ public class Room extends Lodging
          * Set the room price of the Room
          * @param roomPrice
          */
-        public void setRoomPrice(int roomPrice) {
+        public void setRoomPrice(int roomPrice) 
+        {
             this.roomPrice = roomPrice;
         }
         
@@ -54,7 +56,8 @@ public class Room extends Lodging
          * Return the room number of the Room
          * @return int
          */
-        public int getRoomNumber() {
+        public int getRoomNumber() 
+        {
             return this.roomNumber;
         };
         
@@ -62,7 +65,8 @@ public class Room extends Lodging
          * Return the room price of the Room
          * @return int
          */
-        public int getRoomPrice() {
+        public int getRoomPrice() 
+        {
             return this.roomPrice;
         } 
 
