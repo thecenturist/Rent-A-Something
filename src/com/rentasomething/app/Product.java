@@ -11,7 +11,7 @@ package com.rentasomething.app;
  * Model a Product object which is-a Rental
  */
 
-public class Product implements Rental
+public class Product extends Item implements Rental
 {
 	private double rentAmount; // A Product has-a rentAmount
 	private double discountPercent; // A Product has-a discountPercent
@@ -55,5 +55,11 @@ public class Product implements Rental
 	public double getDiscountPercentage()
 	{
 		return this.discountPercent;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Rent: " + this.getRentAmount() + "\nDiscount: " + this.getDiscountPercentage() + "%" ;
 	}
 }
