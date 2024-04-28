@@ -1,4 +1,4 @@
-package src.com.rentasomething.app;
+package com.rentasomething.app;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
