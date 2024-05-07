@@ -105,7 +105,8 @@ public class CreatePersonPanel extends JPanel
 	{
 		for (int checkChar = 0; checkChar < str.length(); checkChar++)
 		{
-			// 57 is ASCII value for 9 and 48 is ASCII value for 0
+			// 57 is ASCII value for 9 
+			// 48 is ASCII value for 0
 			if (str.charAt(checkChar) > 57 || str.charAt(checkChar) < 48)
 			{
 				return true;
