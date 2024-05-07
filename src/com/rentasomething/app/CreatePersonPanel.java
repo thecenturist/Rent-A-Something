@@ -5,31 +5,21 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- * Lead Author(s):
- * 
- * @author Kaitlyn Nguy
- * @author Anjolaoluwa Akinremi
- * 
- *         References:
- *         Version/date: April-28-2024
- * 
- *         Responsibilities of class:
- *         This will be a JPanel that deals with the creation of a new Person in the application, including saving the details of the Person created to a database.
- */
-
 public class CreatePersonPanel extends JPanel
 {
-	public CreatePersonPanel() {
+	public CreatePersonPanel()
+	{
 		this.setLayout(new BorderLayout());
-		
-		// TODO: Make visual components closer together, and text fields smaller to fit only a name.
-		
+
+		// TODO: Make visual components closer together, and text fields smaller
+		// to fit only a name.
+
 		JPanel northPanel = new JPanel();
 		JLabel createTitle = new JLabel("CREATE NEW PERSON");
 		northPanel.add(createTitle);
@@ -52,29 +42,76 @@ public class CreatePersonPanel extends JPanel
 		centerPanel.add(ssn);
 		JTextField ssnField = new JTextField();
 		centerPanel.add(ssnField);
-		
+
 		this.add(centerPanel, BorderLayout.CENTER);
-		
+
 		JPanel southPanel = new JPanel();
 		JButton createButton = new JButton("Create");
 		createButton.setPreferredSize(new Dimension(100, 50));
 		southPanel.add(createButton);
 		this.add(southPanel, BorderLayout.SOUTH);
-		
-		createButton.addActionListener(new ActionListener() {
+
+		createButton.addActionListener(new ActionListener()
+		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				if (firstNameField.getText().isEmpty() ||lastNameField.getText().isEmpty() || ssnField.getText().isEmpty()) {
+				if (firstNameField.getText().isEmpty()
+						|| lastNameField.getText().isEmpty()
+						|| ssnField.getText().isEmpty())
+				{
 					new ErrorDialog("Fields cannot be empty");
-				} else {
-					// TODO: Properly validate that SSN is only numbers, and if not, throw error pop up
-					Person person = new Person(firstNameField.getText(), lastNameField.getText(), Long.parseLong(ssnField.getText()));
+				}
+				else if (containsLetters(ssnField.getText()) == true)
+				{
+					new ErrorDialog("SSN must contain numbers");
+				}
+				else if (containsNumbers(firstNameField.getText()) == true
+						|| containsNumbers(lastNameField.getText()) == true)
+				{
+					new ErrorDialog("Name must contain letters");
+				}
+				else
+				{
+					// TODO: Properly validate that SSN is only numbers, and if
+					// not, throw error pop up
+					Person person = new Person(firstNameField.getText(),
+							lastNameField.getText(),
+							Long.parseLong(ssnField.getText()));
 					// TODO: Save person to database (csv file)
-					System.out.println(person.toString());	
-				}	
+					System.out.println(person.toString());
+				}
 			}
 		});
-		
+
 	}
+
+	private boolean containsNumbers(String str)
+	{
+		for (int checkChar = 0; checkChar < str.length(); checkChar++)
+		{
+			for (int number = 0; number < 10; number++)
+			{
+				if (str.charAt(checkChar) == (char) number)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private boolean containsLetters(String str)
+	{
+		for (int checkChar = 0; checkChar < str.length(); checkChar++)
+		{
+			// 57 is ASCII value for 9 and 48 is ASCII value for 0
+			if (str.charAt(checkChar) > 57 || str.charAt(checkChar) < 48)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
