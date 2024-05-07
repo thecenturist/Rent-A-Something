@@ -14,10 +14,14 @@ public class TestView
 	static JMenuBar menuBar = new JMenuBar();
 	
 	public static void main(String[] args) {
+		
 		JFrame mainFrame = new JFrame(appName);
 		mainFrame.setLayout(new FlowLayout());
 		mainFrame.setSize(1000, 500);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		GroupLayout groupLayout = new GroupLayout(mainFrame.getContentPane());
+		mainFrame.setLayout(groupLayout);
+		
 		// Center the application in the center of the screen on launch
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		mainFrame.setLocation(dim.width/2-mainFrame.getSize().width/2, dim.height/2-mainFrame.getSize().height/2);
@@ -50,7 +54,7 @@ public class TestView
 		
 		JButton changeBtn = new JButton("Click");
 		mainFrame.add(changeBtn);
-		
+		createPersonPanel.setVisible(false);
 		changeBtn.addActionListener(new ActionListener() {
 
 			@Override
