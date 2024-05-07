@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 
 public class ErrorDialog extends JDialog
 {
+	// TODO: Make it so the main window cannot be returned to unless the dialog is closed
 	public ErrorDialog(String message) {
 		this.setTitle("ERROR");
 		this.setSize(400,100);
