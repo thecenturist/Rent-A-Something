@@ -1,6 +1,5 @@
 package com.rentasomething.app;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -27,16 +26,18 @@ import javax.swing.JMenuItem;
 public class GUI extends JFrame
 {
 	static JMenuBar menuBar = new JMenuBar();
-	
-	public GUI() {
+
+	public GUI()
+	{
 		// Set Program Window title and dimension
 		this.setTitle("LJC Resort & Housing Rental System");
 		this.setSize(1000, 500);
-		
+
 		// Center to screen
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-		
+		this.setLocation(dim.width / 2 - this.getSize().width / 2,
+				dim.height / 2 - this.getSize().height / 2);
+
 		// MENU
 		JMenu createMenu = new JMenu("CREATE");
 		JMenu viewMenu = new JMenu("VIEW");
@@ -53,13 +54,12 @@ public class GUI extends JFrame
 		menuBar.add(viewMenu);
 		menuBar.add(helpMenu);
 		this.setJMenuBar(menuBar);
-		
-		
+
 		CreatePersonPanel np = new CreatePersonPanel();
 		CreateProductPanel npp = new CreateProductPanel();
-		ViewPeoplePanel vpp = new ViewPeoplePanel();
-		
-		createPersonItem.addActionListener(new ActionListener() {
+
+		createPersonItem.addActionListener(new ActionListener()
+		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
@@ -70,8 +70,9 @@ public class GUI extends JFrame
 				getContentPane().repaint();
 			}
 		});
-		
-		createProductItem.addActionListener(new ActionListener() {
+
+		createProductItem.addActionListener(new ActionListener()
+		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
@@ -82,26 +83,30 @@ public class GUI extends JFrame
 				getContentPane().repaint();
 			}
 		});
-		
-		viewPeopleItem.addActionListener(new ActionListener() {
+
+		viewPeopleItem.addActionListener(new ActionListener()
+		{
 
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+				ViewPeoplePanel.updatePersons();
+				ViewPeoplePanel vpp = new ViewPeoplePanel();
 				getContentPane().removeAll();
 				getContentPane().invalidate();
 				getContentPane().add(vpp);
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}
-			
+
 		});
-		
+
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-	
-	public static void main(String[] args) {
+
+	public static void main(String[] args)
+	{
 		new GUI();
 	}
 }
