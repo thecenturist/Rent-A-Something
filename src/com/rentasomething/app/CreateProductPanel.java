@@ -3,6 +3,8 @@ package com.rentasomething.app;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Hashtable;
 
 import javax.swing.JButton;
@@ -15,6 +17,7 @@ public class CreateProductPanel extends JPanel
 {
 
 	private Hashtable<Integer, JLabel> productTypeOptions;
+	private Product product;
 
 	public CreateProductPanel()
 	{
@@ -29,12 +32,18 @@ public class CreateProductPanel extends JPanel
 		centerPanel.setLayout(new GridLayout(3, 2, 5, 18));
 
 		JLabel rentPerHour = new JLabel("     Rent Per Hour: ");
+		JTextField rentPerHourText = new JTextField();
 		centerPanel.add(rentPerHour);
-		centerPanel.add(new JTextField());
+		centerPanel.add(rentPerHourText);
 
 		JLabel discountPercentage = new JLabel("     Discount Percentage: ");
+		JSlider discountPercentageSlider = new JSlider();
+		// TODO: Fix JSlider from having crammed labels
+		discountPercentageSlider.setMaximum(40);
+		discountPercentageSlider.setMajorTickSpacing(1);
+		discountPercentageSlider.setPaintLabels(true);
 		centerPanel.add(discountPercentage);
-		centerPanel.add(new JTextField());
+		centerPanel.add(discountPercentageSlider);
 
 		JLabel productType = new JLabel("     Product Type:");
 		JSlider productSlider = new JSlider();
@@ -60,6 +69,42 @@ public class CreateProductPanel extends JPanel
 		southPanel.add(createButton);
 		this.add(southPanel, BorderLayout.SOUTH);
 
+		createButton.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (rentPerHourText.getText().isEmpty())
+				{
+					new ErrorDialog("Fields cannot be empty");
+				}
+				else if (ErrorDialog
+						.isDecimal(rentPerHourText.getText()) == false)
+				{
+					new ErrorDialog(
+							"Rent per hour and discount percentage must contain numbers");
+				}
+				else
+				{
+					// TODO: Properly validate that SSN is only numbers, and if
+					// not, throw error pop up
+					// TODO: Save person to database (csv file)
+					switch (productSlider.getValue())
+					{
+						case 0:
+							break;
+						case 1:
+							break;
+						case 2:
+							break;
+					}
+					System.out.println(product.toString());
+				}
+			}
+		});
+
 	}
+
+}
 
 }
