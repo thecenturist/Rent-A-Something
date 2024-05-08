@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -13,6 +14,9 @@ import javax.swing.JTextField;
 
 public class CreatePersonPanel extends JPanel
 {
+
+	private static ArrayList<Person> allPersons = new ArrayList<>();
+
 	public CreatePersonPanel()
 	{
 		this.setLayout(new BorderLayout());
@@ -62,12 +66,15 @@ public class CreatePersonPanel extends JPanel
 				{
 					new ErrorDialog("Fields cannot be empty");
 				}
-				else if (containsLetters(ssnField.getText()) == true)
+				else if (ErrorDialog
+						.containsLetters(ssnField.getText()) == true)
 				{
 					new ErrorDialog("SSN must contain numbers");
 				}
-				else if (containsNumbers(firstNameField.getText()) == true
-						|| containsNumbers(lastNameField.getText()) == true)
+				else if (ErrorDialog
+						.containsNumbers(firstNameField.getText()) == true
+						|| ErrorDialog.containsNumbers(
+								lastNameField.getText()) == true)
 				{
 					new ErrorDialog("Name must contain letters");
 				}
@@ -79,40 +86,25 @@ public class CreatePersonPanel extends JPanel
 							lastNameField.getText(),
 							Long.parseLong(ssnField.getText()));
 					// TODO: Save person to database (csv file)
-					System.out.println(person.toString());
+					allPersons.add(person);
 				}
 			}
 		});
 
 	}
 
-	private boolean containsNumbers(String str)
+	public static ArrayList<Person> getAllPersons()
 	{
-		for (int checkChar = 0; checkChar < str.length(); checkChar++)
+		try
 		{
-			for (int number = 0; number < 10; number++)
-			{
-				if (str.charAt(checkChar) == (char) number)
-				{
-					return true;
-				}
-			}
+			return allPersons;
 		}
-		return false;
-	}
-
-	private boolean containsLetters(String str)
-	{
-		for (int checkChar = 0; checkChar < str.length(); checkChar++)
+		catch (Exception e)
 		{
-			// 57 is ASCII value for 9 
-			// 48 is ASCII value for 0
-			if (str.charAt(checkChar) > 57 || str.charAt(checkChar) < 48)
-			{
-				return true;
-			}
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ArrayList<>();
 		}
-		return false;
 	}
 
 }
