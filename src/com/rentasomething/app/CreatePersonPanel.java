@@ -3,14 +3,17 @@ package com.rentasomething.app;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class CreatePersonPanel extends JPanel
 {
@@ -85,6 +88,20 @@ public class CreatePersonPanel extends JPanel
 					Person person = new Person(firstNameField.getText(),
 							lastNameField.getText(),
 							Long.parseLong(ssnField.getText()));
+					JDialog jd = new JDialog();
+					jd.setTitle("SUCCESS");
+					jd.setSize(400, 100);
+					Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+					jd.setLocation(dim.width / 2 - jd.getSize().width / 2,
+							dim.height / 2 - jd.getSize().height / 2);
+					JLabel jl = new JLabel("Person created successfully");
+					jl.setHorizontalAlignment(SwingConstants.CENTER);
+					jd.add(jl);
+					jd.setVisible(true);
+					jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					firstNameField.setText("");
+					lastNameField.setText("");
+					ssnField.setText("");
 					// TODO: Save person to database (csv file)
 					allPersons.add(person);
 				}
