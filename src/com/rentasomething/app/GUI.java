@@ -1,11 +1,12 @@
 package com.rentasomething.app;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -26,18 +27,16 @@ import javax.swing.JMenuItem;
 public class GUI extends JFrame
 {
 	static JMenuBar menuBar = new JMenuBar();
-
-	public GUI()
-	{
+	
+	public GUI() {
 		// Set Program Window title and dimension
 		this.setTitle("LJC Resort & Housing Rental System");
 		this.setSize(1000, 500);
-
+		
 		// Center to screen
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		this.setLocation(dim.width / 2 - this.getSize().width / 2,
-				dim.height / 2 - this.getSize().height / 2);
-
+		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+		
 		// MENU
 		JMenu createMenu = new JMenu("CREATE");
 		JMenu viewMenu = new JMenu("VIEW");
@@ -54,59 +53,62 @@ public class GUI extends JFrame
 		menuBar.add(viewMenu);
 		menuBar.add(helpMenu);
 		this.setJMenuBar(menuBar);
-
-		CreatePersonPanel np = new CreatePersonPanel();
-		CreateProductPanel npp = new CreateProductPanel();
-
-		createPersonItem.addActionListener(new ActionListener()
-		{
+		
+		// ACTION LISTENERS FOR MENU
+		createPersonItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
 				getContentPane().removeAll();
 				getContentPane().invalidate();
-				getContentPane().add(np);
+				getContentPane().add(new CreatePersonPanel());
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}
 		});
-
-		createProductItem.addActionListener(new ActionListener()
-		{
+		
+		createProductItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
 				getContentPane().removeAll();
 				getContentPane().invalidate();
-				getContentPane().add(npp);
+				getContentPane().add(new CreateProductPanel());
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}
 		});
-
-		viewPeopleItem.addActionListener(new ActionListener()
-		{
-
+		
+		viewPeopleItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				ViewPeoplePanel.updatePersons();
-				ViewPeoplePanel vpp = new ViewPeoplePanel();
 				getContentPane().removeAll();
 				getContentPane().invalidate();
-				getContentPane().add(vpp);
+				getContentPane().add(new ViewPeoplePanel());
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}
-
+			
 		});
-
+		
+		aboutItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				getContentPane().removeAll();
+				getContentPane().invalidate();
+				getContentPane().add(new AboutPanel());
+				getContentPane().revalidate();
+				getContentPane().repaint();
+			}
+		});
+		
+		this.add(new HomepagePanel());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-
-	public static void main(String[] args)
-	{
+	
+	public static void main(String[] args) {
 		new GUI();
 	}
 }
