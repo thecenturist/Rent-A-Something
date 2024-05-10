@@ -106,5 +106,3 @@ public class CreateProductPanel extends JPanel
 	}
 
 }
-
-}
