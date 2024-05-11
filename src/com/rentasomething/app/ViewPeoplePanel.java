@@ -3,15 +3,19 @@ package com.rentasomething.app;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class ViewPeoplePanel extends JPanel
 {
 
-	public ViewPeoplePanel(ArrayList displayPersons)
+	public ViewPeoplePanel(ArrayList<Person> displayPersons)
 	{
 		this.setLayout(new BorderLayout());
 
@@ -23,26 +27,28 @@ public class ViewPeoplePanel extends JPanel
 		JPanel northPanel = new JPanel();
 		JLabel createTitle = new JLabel("VIEW PEOPLE");
 		northPanel.add(createTitle);
+		northPanel.add(new JButton("DELETE"));
 		this.add(northPanel, BorderLayout.NORTH);
 
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-		if (displayPersons.isEmpty() == false)
-		{
-			for (int person = 0; person < displayPersons.size(); person++)
-			{
-				JLabel personLabel = new JLabel(
-						displayPersons.get(person).toString());
-				personLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-				centerPanel.add(personLabel);
-			}
+		
+		int cap = displayPersons.size();
+		String[][] data = new String[cap][3];
+		
+		for (int i = 0; i < displayPersons.size(); i++) {
+			Person temp = displayPersons.get(i);
+			data[i][0] = temp.getFirstName();
+			data[i][1] = temp.getLastName();
+			data[i][2] = String.valueOf(temp.getSSN());
 		}
-		else
-		{
-			JLabel noPersons = new JLabel("No persons at the time");
-			centerPanel.add(noPersons);
-		}
-
+		
+		String[] columnNames = { "Firstname", "Lastname", "SSN" };
+        JTable j = new JTable(data, columnNames);
+        j.setBounds(30, 40, 200, 300);
+        JScrollPane sp = new JScrollPane(j);
+        centerPanel.add(sp);
+        
 		this.add(centerPanel, BorderLayout.CENTER);
 	}
 }
