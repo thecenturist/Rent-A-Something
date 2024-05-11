@@ -30,6 +30,7 @@ public class GUI extends JFrame
 {
 	static JMenuBar menuBar = new JMenuBar();
 	private static ArrayList<Person> allPersons = new ArrayList<>();
+	private static ArrayList<Product> allProducts = new ArrayList<>();
 	
 	public GUI() {
 		// Set Program Window title and dimension
