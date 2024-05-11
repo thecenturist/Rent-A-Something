@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -27,6 +29,7 @@ import javax.swing.JMenuItem;
 public class GUI extends JFrame
 {
 	static JMenuBar menuBar = new JMenuBar();
+	private static ArrayList<Person> allPersons = new ArrayList<>();
 	
 	public GUI() {
 		// Set Program Window title and dimension
@@ -61,7 +64,7 @@ public class GUI extends JFrame
 			{
 				getContentPane().removeAll();
 				getContentPane().invalidate();
-				getContentPane().add(new CreatePersonPanel());
+				getContentPane().add(new CreatePersonPanel(allPersons));
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}
@@ -85,7 +88,7 @@ public class GUI extends JFrame
 			{
 				getContentPane().removeAll();
 				getContentPane().invalidate();
-				getContentPane().add(new ViewPeoplePanel());
+				getContentPane().add(new ViewPeoplePanel(allPersons));
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}
