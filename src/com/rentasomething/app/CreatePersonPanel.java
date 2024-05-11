@@ -18,9 +18,7 @@ import javax.swing.SwingConstants;
 public class CreatePersonPanel extends JPanel
 {
 
-	private static ArrayList<Person> allPersons = new ArrayList<>();
-
-	public CreatePersonPanel()
+	public CreatePersonPanel(ArrayList people)
 	{
 		this.setLayout(new BorderLayout());
 
@@ -103,25 +101,11 @@ public class CreatePersonPanel extends JPanel
 					lastNameField.setText("");
 					ssnField.setText("");
 					// TODO: Save person to database (csv file)
-					allPersons.add(person);
+					people.add(person);
 				}
 			}
 		});
 
-	}
-
-	public static ArrayList<Person> getAllPersons()
-	{
-		try
-		{
-			return allPersons;
-		}
-		catch (Exception e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
 	}
 
 }
