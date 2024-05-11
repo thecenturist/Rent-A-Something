@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 import javax.swing.JButton;
@@ -19,7 +20,7 @@ public class CreateProductPanel extends JPanel
 	private Hashtable<Integer, JLabel> productTypeOptions;
 	private Product product;
 
-	public CreateProductPanel()
+	public CreateProductPanel(ArrayList displayProducts)
 	{
 		this.setLayout(new BorderLayout());
 
