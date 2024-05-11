@@ -44,7 +44,5 @@ public class ViewPeoplePanel extends JPanel
 		}
 
 		this.add(centerPanel, BorderLayout.CENTER);
-		
-		System.out.println("View People loaded");
 	}
 }
