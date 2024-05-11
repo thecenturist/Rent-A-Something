@@ -11,9 +11,7 @@ import javax.swing.JPanel;
 public class ViewPeoplePanel extends JPanel
 {
 
-	private static ArrayList<Person> displayPersons = new ArrayList<>();
-
-	public ViewPeoplePanel()
+	public ViewPeoplePanel(ArrayList displayPersons)
 	{
 		this.setLayout(new BorderLayout());
 
@@ -29,7 +27,6 @@ public class ViewPeoplePanel extends JPanel
 
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-
 		if (displayPersons.isEmpty() == false)
 		{
 			for (int person = 0; person < displayPersons.size(); person++)
@@ -47,18 +44,7 @@ public class ViewPeoplePanel extends JPanel
 		}
 
 		this.add(centerPanel, BorderLayout.CENTER);
-	}
-
-	public static void updatePersons()
-	{
-		try
-		{
-			displayPersons = CreatePersonPanel.getAllPersons();
-		}
-		catch (Exception e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		System.out.println("View People loaded");
 	}
 }
