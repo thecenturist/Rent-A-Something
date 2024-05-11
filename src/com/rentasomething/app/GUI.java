@@ -47,11 +47,13 @@ public class GUI extends JFrame
 		JMenu helpMenu = new JMenu("HELP");
 		JMenuItem createPersonItem = new JMenuItem("Person");
 		JMenuItem viewPeopleItem = new JMenuItem("People");
+		JMenuItem viewProductItem = new JMenuItem("Product");
 		JMenuItem createProductItem = new JMenuItem("Product");
 		JMenuItem aboutItem = new JMenuItem("About");
 		createMenu.add(createPersonItem);
 		createMenu.add(createProductItem);
 		viewMenu.add(viewPeopleItem);
+		viewMenu.add(viewProductItem);
 		helpMenu.add(aboutItem);
 		menuBar.add(createMenu);
 		menuBar.add(viewMenu);
@@ -77,7 +79,7 @@ public class GUI extends JFrame
 			{
 				getContentPane().removeAll();
 				getContentPane().invalidate();
-				getContentPane().add(new CreateProductPanel());
+				getContentPane().add(new CreateProductPanel(allProducts));
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}
@@ -94,6 +96,17 @@ public class GUI extends JFrame
 				getContentPane().repaint();
 			}
 			
+		});
+		
+		viewProductItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				getContentPane().removeAll();
+				getContentPane().invalidate();
+				getContentPane().add(new ViewProductPanel(allProducts));
+				getContentPane().revalidate();
+				getContentPane().repaint();
+			}
 		});
 		
 		aboutItem.addActionListener(new ActionListener() {
