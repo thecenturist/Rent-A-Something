@@ -100,7 +100,12 @@ public class GUI extends JFrame
 			}
 		});
 		
-		
+		createCarProduct.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new CreateCarDialog(allProducts);
+			}
+		});
 		
 		viewPeopleItem.addActionListener(new ActionListener() {
 			@Override
