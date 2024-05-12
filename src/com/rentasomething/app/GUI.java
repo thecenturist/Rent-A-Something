@@ -100,17 +100,7 @@ public class GUI extends JFrame
 			}
 		});
 		
-		createProductItem.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				getContentPane().removeAll();
-				getContentPane().invalidate();
-				getContentPane().add(new CreateProductPanel(allProducts));
-				getContentPane().revalidate();
-				getContentPane().repaint();
-			}
-		});
+		
 		
 		viewPeopleItem.addActionListener(new ActionListener() {
 			@Override
