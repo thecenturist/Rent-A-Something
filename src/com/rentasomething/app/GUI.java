@@ -48,7 +48,34 @@ public class GUI extends JFrame
 		JMenuItem createPersonItem = new JMenuItem("Person");
 		JMenuItem viewPeopleItem = new JMenuItem("People");
 		JMenuItem viewProductItem = new JMenuItem("Product");
-		JMenuItem createProductItem = new JMenuItem("Product");
+		
+		JMenu createProductItem = new JMenu("Product");
+		JMenu createVehicleProduct = new JMenu("Vehicle");
+		JMenu createElectronicProduct = new JMenu("Electronic");
+		JMenu createLodgingProduct = new JMenu("Lodging");
+		
+		JMenuItem createCarProduct = new JMenuItem("CAR");
+		JMenuItem createBoatProduct = new JMenuItem("BOAT");
+		JMenuItem createMotorcycleProduct = new JMenuItem("MOTORCYCLE");
+		JMenuItem createPhoneProduct = new JMenuItem("PHONE");
+		JMenuItem createApartmentProduct = new JMenuItem("APARTMENT");
+		JMenuItem createRoomProduct = new JMenuItem("ROOM");
+		JMenuItem createCameraProduct = new JMenuItem("CAMERA");
+		
+		createVehicleProduct.add(createCarProduct);
+		createVehicleProduct.add(createBoatProduct);
+		createVehicleProduct.add(createMotorcycleProduct);
+		
+		createElectronicProduct.add(createPhoneProduct);
+		createElectronicProduct.add(createCameraProduct);
+		
+		createLodgingProduct.add(createApartmentProduct);
+		createLodgingProduct.add(createRoomProduct);
+		
+		createProductItem.add(createVehicleProduct);
+		createProductItem.add(createElectronicProduct);
+		createProductItem.add(createLodgingProduct);
+		
 		JMenuItem aboutItem = new JMenuItem("About");
 		createMenu.add(createPersonItem);
 		createMenu.add(createProductItem);
