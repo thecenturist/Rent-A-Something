@@ -52,4 +52,14 @@ class UnitTesting {
 		assertEquals(60.5, v2.getRentAmount());
 		assertEquals(4, v2.getDiscountPercentage());
 	}
+	
+	@Test
+	void testCar() {
+		Vehicle v1 = new Vehicle("Nissan", "Maxima", 2021);
+		Car c1 = new Car(v1, 55000);
+		assertEquals(0, c1.getRentAmount());
+		assertEquals(55000, c1.getOdometerReading());
+		
+		Car c2 = new Car("Acura", "TRX", 2020, 46789);
+	}
 }
