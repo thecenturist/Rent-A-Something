@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 // TODO: Write GUI code to display all Products
 public class ViewProductPanel extends JPanel
 {
-	public ViewProductPanel(ArrayList displayProducts) {
+	public ViewProductPanel(){
 		this.setLayout(new BorderLayout());
 	}
 }

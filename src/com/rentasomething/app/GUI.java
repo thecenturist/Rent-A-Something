@@ -30,8 +30,6 @@ public class GUI extends JFrame
 {
 	static Database db = new Database(); // A GUI has-a db
 	static JMenuBar menuBar = new JMenuBar(); // A GUI has-a menuBar
-	private static ArrayList<Person> allPersons = new ArrayList<>();
-	private static ArrayList<Product> allProducts = new ArrayList<>();
 	
 	public GUI() {
 		// Set Program Window title and dimension
@@ -168,7 +166,7 @@ public class GUI extends JFrame
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
 				getContentPane().invalidate();
-				getContentPane().add(new ViewProductPanel(allProducts));
+				getContentPane().add(new ViewProductPanel());
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}
