@@ -28,7 +28,8 @@ import javax.swing.JMenuItem;
 
 public class GUI extends JFrame
 {
-	static JMenuBar menuBar = new JMenuBar();
+	static Database db = new Database(); // A GUI has-a db
+	static JMenuBar menuBar = new JMenuBar(); // A GUI has-a menuBar
 	private static ArrayList<Person> allPersons = new ArrayList<>();
 	private static ArrayList<Product> allProducts = new ArrayList<>();
 	
@@ -94,7 +95,7 @@ public class GUI extends JFrame
 			{
 				getContentPane().removeAll();
 				getContentPane().invalidate();
-				getContentPane().add(new CreatePersonPanel(allPersons));
+				getContentPane().add(new CreatePersonPanel());
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}

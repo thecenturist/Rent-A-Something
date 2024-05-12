@@ -78,7 +78,7 @@ public class ViewPeoplePanel extends JPanel
 						try {
 							if (!displayPersons.isEmpty()) {
 								ssn = Long.parseLong(ssnField.getText());
-								for (Person p : displayPersons) {
+								for (Person p : GUI.db.getAllPersons()) {
 									if (p.getSSN() == ssn) {
 										System.out.println("Deleting: " + ssn);
 										displayPersons.remove(p);
@@ -111,11 +111,11 @@ public class ViewPeoplePanel extends JPanel
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 		
-		int cap = displayPersons.size();
+		int cap = GUI.db.getAllPersons().size();
 		String[][] data = new String[cap][3];
 		
-		for (int i = 0; i < displayPersons.size(); i++) {
-			Person temp = displayPersons.get(i);
+		for (int i = 0; i < GUI.db.getAllPersons().size(); i++) {
+			Person temp = GUI.db.getAllPersons().get(i);
 			data[i][0] = temp.getFirstName();
 			data[i][1] = temp.getLastName();
 			data[i][2] = String.valueOf(temp.getSSN());

@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 public class CreatePersonPanel extends JPanel
 {
 
-	public CreatePersonPanel(ArrayList people)
+	public CreatePersonPanel()
 	{
 		this.setLayout(new BorderLayout());
 
@@ -100,8 +100,7 @@ public class CreatePersonPanel extends JPanel
 					firstNameField.setText("");
 					lastNameField.setText("");
 					ssnField.setText("");
-					// TODO: Save person to database (csv file)
-					people.add(person);
+					GUI.db.addPerson(person);
 				}
 			}
 		});
