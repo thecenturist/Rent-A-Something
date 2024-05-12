@@ -107,6 +107,48 @@ public class GUI extends JFrame
 			}
 		});
 		
+		createBoatProduct.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new CreateBoatDialog(allProducts);
+			}
+		});
+		
+		createMotorcycleProduct.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new CreateMotorcycleDialog(allProducts);
+			}
+		});
+		
+		createCameraProduct.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new CreateCameraDialog(allProducts);
+			}
+		});
+			
+		createPhoneProduct.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new CreatePhoneDialog(allProducts);
+			}
+		});
+		
+		createRoomProduct.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new CreateRoomDialog(allProducts);
+			}
+		});
+		
+		createApartmentProduct.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new CreateApartmentDialog(allProducts);
+			}
+		});
+		
 		viewPeopleItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e)
