@@ -10,7 +10,7 @@ import javax.swing.SwingConstants;
 
 public class CreateCameraDialog extends JDialog
 {
-	public CreateCameraDialog(ArrayList<Product> allProducts) {
+	public CreateCameraDialog() {
 		this.setTitle("Create Camera");
 		this.setSize(400, 100);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

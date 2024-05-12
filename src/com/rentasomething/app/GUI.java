@@ -104,49 +104,49 @@ public class GUI extends JFrame
 		createCarProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreateCarDialog(allProducts);
+				new CreateCarDialog();
 			}
 		});
 		
 		createBoatProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreateBoatDialog(allProducts);
+				new CreateBoatDialog();
 			}
 		});
 		
 		createMotorcycleProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreateMotorcycleDialog(allProducts);
+				new CreateMotorcycleDialog();
 			}
 		});
 		
 		createCameraProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreateCameraDialog(allProducts);
+				new CreateCameraDialog();
 			}
 		});
 			
 		createPhoneProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreatePhoneDialog(allProducts);
+				new CreatePhoneDialog();
 			}
 		});
 		
 		createRoomProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreateRoomDialog(allProducts);
+				new CreateRoomDialog();
 			}
 		});
 		
 		createApartmentProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreateApartmentDialog(allProducts);
+				new CreateApartmentDialog();
 			}
 		});
 		
@@ -156,7 +156,7 @@ public class GUI extends JFrame
 			{
 				getContentPane().removeAll();
 				getContentPane().invalidate();
-				getContentPane().add(new ViewPeoplePanel(allPersons));
+				getContentPane().add(new ViewPeoplePanel());
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}

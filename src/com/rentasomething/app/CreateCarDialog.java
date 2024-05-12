@@ -10,7 +10,7 @@ import javax.swing.SwingConstants;
 
 public class CreateCarDialog extends JDialog
 {
-	public CreateCarDialog(ArrayList<Product> allProducts) {
+	public CreateCarDialog() {
 		this.setTitle("Create Car");
 		this.setSize(400, 100);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

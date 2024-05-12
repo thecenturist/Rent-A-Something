@@ -8,19 +8,18 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class CreateBoatDialog extends JDialog
+public class DeletePersonDialog extends JDialog
 {
-	public CreateBoatDialog() {
-		this.setTitle("Create Boat");
+	public DeletePersonDialog(ArrayList<Person> allPersons) {
+		this.setTitle("Delete Person by SSN");
 		this.setSize(400, 100);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width / 2 - this.getSize().width / 2,
 				dim.height / 2 - this.getSize().height / 2);
-		JLabel jl = new JLabel("Boat creation");
+		JLabel jl = new JLabel("Delete a person by SSN");
 		jl.setHorizontalAlignment(SwingConstants.CENTER);
 		this.add(jl);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 	}
-
 }

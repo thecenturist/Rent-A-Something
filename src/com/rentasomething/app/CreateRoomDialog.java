@@ -10,7 +10,7 @@ import javax.swing.SwingConstants;
 
 public class CreateRoomDialog extends JDialog
 {
-	public CreateRoomDialog(ArrayList<Product> allProducts) {
+	public CreateRoomDialog() {
 		this.setTitle("Create Room");
 		this.setSize(400, 100);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

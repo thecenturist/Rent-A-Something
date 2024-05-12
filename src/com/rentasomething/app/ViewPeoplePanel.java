@@ -23,7 +23,7 @@ import javax.swing.SwingConstants;
 public class ViewPeoplePanel extends JPanel
 {
 
-	public ViewPeoplePanel(ArrayList<Person> displayPersons)
+	public ViewPeoplePanel()
 	{
 		this.setLayout(new BorderLayout());
 
@@ -76,12 +76,12 @@ public class ViewPeoplePanel extends JPanel
 					{
 						Long ssn;
 						try {
-							if (!displayPersons.isEmpty()) {
+							if (!GUI.db.getAllPersons().isEmpty()) {
 								ssn = Long.parseLong(ssnField.getText());
 								for (Person p : GUI.db.getAllPersons()) {
 									if (p.getSSN() == ssn) {
 										System.out.println("Deleting: " + ssn);
-										displayPersons.remove(p);
+										GUI.db.removePerson(p);
 										deletePersonDialog.dispose();
 										revalidate();
 										repaint();

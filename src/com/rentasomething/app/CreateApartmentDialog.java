@@ -10,7 +10,7 @@ import javax.swing.SwingConstants;
 
 public class CreateApartmentDialog extends JDialog
 {
-	public CreateApartmentDialog(ArrayList<Product> allProducts) {
+	public CreateApartmentDialog() {
 		this.setTitle("Create Apartment");
 		this.setSize(400, 100);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

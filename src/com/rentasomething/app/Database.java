@@ -31,6 +31,10 @@ public class Database
 		this.people.add(p);
 	}
 	
+	public void removePerson(Person p) {
+		this.people.remove(p);
+	}
+	
 	public ArrayList<Person> getAllPersons(){
 		return this.people;
 	}

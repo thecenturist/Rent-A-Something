@@ -20,7 +20,7 @@ public class CreateProductPanel extends JPanel
 	private Hashtable<Integer, JLabel> productTypeOptions;
 	private Product product;
 
-	public CreateProductPanel(ArrayList displayProducts)
+	public CreateProductPanel()
 	{
 		this.setLayout(new BorderLayout());
 
