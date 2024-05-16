@@ -64,8 +64,9 @@ public class Database
 
 	public static String[] namesArray()
 	{
-		int personInc = 0;
-		nameArray = new String[people.size()];
+		int personInc = 1;
+		nameArray = new String[people.size()+1];
+		nameArray[0] = "None";
 		for (Person person : people)
 		{
 			nameArray[personInc] = person.getFullName();
