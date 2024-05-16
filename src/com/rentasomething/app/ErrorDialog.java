@@ -7,6 +7,19 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Kaitlyn Nguy
+ * @author Anjolaoluwa Akinremi
+ * 
+ *         References:
+ *         Version/date: May-15-2024
+ * 
+ *         Responsibilities of class:
+ *         Generates error message when something is wrong
+ */
+
 public class ErrorDialog extends JDialog
 {
 	// TODO: Make it so the main window cannot be returned to unless the dialog
@@ -29,12 +42,11 @@ public class ErrorDialog extends JDialog
 	{
 		for (int checkChar = 0; checkChar < str.length(); checkChar++)
 		{
-			for (int number = 0; number < 10; number++)
+			// 57 is ASCII value for 9
+			// 48 is ASCII value for 0
+			if (str.charAt(checkChar) <= 57 && str.charAt(checkChar) >= 48)
 			{
-				if (str.charAt(checkChar) == (char) number)
-				{
-					return true;
-				}
+				return true;
 			}
 		}
 		return false;
