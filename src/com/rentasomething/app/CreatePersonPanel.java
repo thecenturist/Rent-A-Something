@@ -6,7 +6,6 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -14,6 +13,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+/**
+ * Lead Author(s):
+ * 
+ * @author Kaitlyn Nguy
+ * @author Anjolaoluwa Akinremi
+ * 
+ *         References:
+ *         Version/date: March-18-2024
+ * 
+ *         Responsibilities of class:
+ *         Allows for creation of persons
+ */
 
 public class CreatePersonPanel extends JPanel
 {
@@ -67,17 +79,14 @@ public class CreatePersonPanel extends JPanel
 				{
 					new ErrorDialog("Fields cannot be empty");
 				}
-				else if (ErrorDialog
-						.containsLetters(ssnField.getText()) == true)
-				{
-					new ErrorDialog("SSN must contain numbers");
-				}
-				else if (ErrorDialog
-						.containsNumbers(firstNameField.getText()) == true
+				else if (ErrorDialog.containsLetters(ssnField.getText()) == true
+						|| ErrorDialog.containsNumbers(
+								firstNameField.getText()) == true
 						|| ErrorDialog.containsNumbers(
 								lastNameField.getText()) == true)
 				{
-					new ErrorDialog("Name must contain letters");
+					new ErrorDialog(
+							"SSN must contain numbers and name must contain letters");
 				}
 				else
 				{
