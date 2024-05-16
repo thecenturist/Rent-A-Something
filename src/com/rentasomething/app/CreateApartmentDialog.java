@@ -1,4 +1,4 @@
-package com.rentasomething.app;
+package src.com.rentasomething.app;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -34,7 +34,7 @@ public class CreateApartmentDialog extends JDialog
 	{
 		JPanel bottomPanel = new JPanel();
 		JPanel centerPanel = new JPanel();
-		centerPanel.setLayout(new GridLayout(7, 2, 5, 18));
+		centerPanel.setLayout(new GridLayout(6, 2, 5, 18));
 
 		this.setTitle("Create Apartment");
 		this.setSize(400, 300);
@@ -99,17 +99,14 @@ public class CreateApartmentDialog extends JDialog
 						|| ErrorDialog
 								.containsLetters(anTextField.getText()) == true
 						|| ErrorDialog
-								.containsLetters(apTextField.getText()) == true)
-				{
-					new ErrorDialog(
-							"Max capacity, apartment number, and apartment price must be integers");
-				}
-				else if (ErrorDialog.isDecimal(nBeTextField.getText()) == false
+								.containsLetters(apTextField.getText()) == true
+						|| ErrorDialog
+								.isDecimal(nBeTextField.getText()) == false
 						|| ErrorDialog
 								.isDecimal(nBaTextField.getText()) == false)
 				{
 					new ErrorDialog(
-							"Number of bedrooms and bathrooms must be numbers");
+							"Field 1, 2, 3 must be integers. Fields 4, 5 must be numbers.");
 				}
 				else
 				{
