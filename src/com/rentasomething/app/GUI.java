@@ -86,6 +86,7 @@ public class GUI extends JFrame
 		menuBar.add(helpMenu);
 		this.setJMenuBar(menuBar);
 		
+		
 		// ACTION LISTENERS FOR MENU
 		createPersonItem.addActionListener(new ActionListener() {
 			@Override
@@ -189,6 +190,10 @@ public class GUI extends JFrame
 	}
 	
 	public static void main(String[] args) {
+		GUI.db.addPerson(new Person("Anjolaoluwa", "Akinremi", 333353L));
+		GUI.db.addPerson(new Person("Kendrick", "Rock", 333333L));
+		GUI.db.addPerson(new Person("Halleberry", "Hallelujah", 533333L));
+		GUI.db.addPerson(new Person("Kaitlyn", "Nguy", 333433L));
 		new GUI();
 	}
 }
