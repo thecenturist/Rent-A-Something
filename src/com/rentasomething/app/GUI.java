@@ -1,14 +1,11 @@
 package com.rentasomething.app;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -30,16 +27,18 @@ public class GUI extends JFrame
 {
 	static Database db = new Database(); // A GUI has-a db
 	static JMenuBar menuBar = new JMenuBar(); // A GUI has-a menuBar
-	
-	public GUI() {
+
+	public GUI()
+	{
 		// Set Program Window title and dimension
 		this.setTitle("LJC Resort & Housing Rental System");
 		this.setSize(1000, 500);
-		
+
 		// Center to screen
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-		
+		this.setLocation(dim.width / 2 - this.getSize().width / 2,
+				dim.height / 2 - this.getSize().height / 2);
+
 		// MENU
 		JMenu createMenu = new JMenu("CREATE");
 		JMenu viewMenu = new JMenu("VIEW");
@@ -47,12 +46,12 @@ public class GUI extends JFrame
 		JMenuItem createPersonItem = new JMenuItem("Person");
 		JMenuItem viewPeopleItem = new JMenuItem("People");
 		JMenuItem viewProductItem = new JMenuItem("Product");
-		
+
 		JMenu createProductItem = new JMenu("Product");
 		JMenu createVehicleProduct = new JMenu("Vehicle");
 		JMenu createElectronicProduct = new JMenu("Electronic");
 		JMenu createLodgingProduct = new JMenu("Lodging");
-		
+
 		JMenuItem createCarProduct = new JMenuItem("CAR");
 		JMenuItem createBoatProduct = new JMenuItem("BOAT");
 		JMenuItem createMotorcycleProduct = new JMenuItem("MOTORCYCLE");
@@ -60,21 +59,21 @@ public class GUI extends JFrame
 		JMenuItem createApartmentProduct = new JMenuItem("APARTMENT");
 		JMenuItem createRoomProduct = new JMenuItem("ROOM");
 		JMenuItem createCameraProduct = new JMenuItem("CAMERA");
-		
+
 		createVehicleProduct.add(createCarProduct);
 		createVehicleProduct.add(createBoatProduct);
 		createVehicleProduct.add(createMotorcycleProduct);
-		
+
 		createElectronicProduct.add(createPhoneProduct);
 		createElectronicProduct.add(createCameraProduct);
-		
+
 		createLodgingProduct.add(createApartmentProduct);
 		createLodgingProduct.add(createRoomProduct);
-		
+
 		createProductItem.add(createVehicleProduct);
 		createProductItem.add(createElectronicProduct);
 		createProductItem.add(createLodgingProduct);
-		
+
 		JMenuItem aboutItem = new JMenuItem("About");
 		createMenu.add(createPersonItem);
 		createMenu.add(createProductItem);
@@ -85,10 +84,10 @@ public class GUI extends JFrame
 		menuBar.add(viewMenu);
 		menuBar.add(helpMenu);
 		this.setJMenuBar(menuBar);
-		
-		
+
 		// ACTION LISTENERS FOR MENU
-		createPersonItem.addActionListener(new ActionListener() {
+		createPersonItem.addActionListener(new ActionListener()
+		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
@@ -99,57 +98,72 @@ public class GUI extends JFrame
 				getContentPane().repaint();
 			}
 		});
-		
-		createCarProduct.addActionListener(new ActionListener() {
+
+		createCarProduct.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				new CreateCarDialog();
 			}
 		});
-		
-		createBoatProduct.addActionListener(new ActionListener() {
+
+		createBoatProduct.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				new CreateBoatDialog();
 			}
 		});
-		
-		createMotorcycleProduct.addActionListener(new ActionListener() {
+
+		createMotorcycleProduct.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				new CreateMotorcycleDialog();
 			}
 		});
-		
-		createCameraProduct.addActionListener(new ActionListener() {
+
+		createCameraProduct.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				new CreateCameraDialog();
 			}
 		});
-			
-		createPhoneProduct.addActionListener(new ActionListener() {
+
+		createPhoneProduct.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				new CreatePhoneDialog();
 			}
 		});
-		
-		createRoomProduct.addActionListener(new ActionListener() {
+
+		createRoomProduct.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				new CreateRoomDialog();
 			}
 		});
-		
-		createApartmentProduct.addActionListener(new ActionListener() {
+
+		createApartmentProduct.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				new CreateApartmentDialog();
 			}
 		});
-		
-		viewPeopleItem.addActionListener(new ActionListener() {
+
+		viewPeopleItem.addActionListener(new ActionListener()
+		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
@@ -159,12 +173,14 @@ public class GUI extends JFrame
 				getContentPane().revalidate();
 				getContentPane().repaint();
 			}
-			
+
 		});
-		
-		viewProductItem.addActionListener(new ActionListener() {
+
+		viewProductItem.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				getContentPane().removeAll();
 				getContentPane().invalidate();
 				getContentPane().add(new ViewProductPanel());
@@ -172,10 +188,12 @@ public class GUI extends JFrame
 				getContentPane().repaint();
 			}
 		});
-		
-		aboutItem.addActionListener(new ActionListener() {
+
+		aboutItem.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				getContentPane().removeAll();
 				getContentPane().invalidate();
 				getContentPane().add(new AboutPanel());
@@ -183,17 +201,14 @@ public class GUI extends JFrame
 				getContentPane().repaint();
 			}
 		});
-		
+
 		this.add(new HomepagePanel());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-	
-	public static void main(String[] args) {
-		GUI.db.addPerson(new Person("Anjolaoluwa", "Akinremi", 333353L));
-		GUI.db.addPerson(new Person("Kendrick", "Rock", 333333L));
-		GUI.db.addPerson(new Person("Halleberry", "Hallelujah", 533333L));
-		GUI.db.addPerson(new Person("Kaitlyn", "Nguy", 333433L));
+
+	public static void main(String[] args)
+	{
 		new GUI();
 	}
 }
