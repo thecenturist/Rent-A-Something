@@ -3,6 +3,7 @@ package com.rentasomething.app;
 /**
  * Lead Author(s):
  * @author Kaitlyn Nguy
+ * @author Anjolaoluwa Akinremi
  * 
  * References:
  * Version/date: March-21-2024
@@ -14,32 +15,32 @@ package com.rentasomething.app;
 // A Lodging is-a Product
 public class Lodging extends Product
 {
-        // A Lodging has-a renter name
-        private String renterName;
+        // A Lodging has-a renter
+        private Person renter;
         // A Lodging has-a max capacity
         private int maxCapacity;
 
-        public Lodging(String renterName, int maxCapacity)
+        public Lodging(Person renter, int maxCapacity)
         {
             super(0, 0);
-            this.renterName = renterName;
+            this.renter = renter;
             this.maxCapacity = maxCapacity;
         }
 
-        public Lodging(String renterName, int maxCapacity, double rent, double discount)
+        public Lodging(Person renter, int maxCapacity, double rent, double discount)
         {
             super(rent, discount);
-            this.renterName = renterName;
+            this.renter = renter;
             this.maxCapacity = maxCapacity;
         }
         
         /**
-         * Set the renter name of the Lodging
-         * @param manufacturer
+         * Set the renter of the Lodging
+         * @param renter
          */
-        public void setRenterName(String renterName) 
+        public void setRenterName(Person renter) 
         {
-            this.renterName = renterName;
+            this.renter = renter;
         }
         
         /**
@@ -52,12 +53,12 @@ public class Lodging extends Product
         }
         
         /**
-         * Return the renter name of the Lodging
-         * @return String
+         * Return the renter of the Lodging
+         * @return Person
          */
-        public String getRenterName() 
+        public Person getRenter() 
         {
-            return this.renterName;
+            return this.renter;
         };
         
         /**

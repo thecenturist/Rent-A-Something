@@ -3,6 +3,7 @@ package com.rentasomething.app;
 /**
  * Lead Author(s):
  * @author Kaitlyn Nguy
+ * @author Anjolaoluwa Akinremi
  * 
  * References:
  * Version/date: March-21-2024
@@ -23,14 +24,14 @@ public class Apartment extends Lodging
         // An Apartment has-a number of bathrooms
         private int numberOfBathrooms;
 
-        public Apartment(String renterName, int maxCapacity)
+        public Apartment(Person renter, int maxCapacity)
         {
-            super(renterName, maxCapacity);
+            super(renter, maxCapacity);
         }
 
-        public Apartment(String renterName, int maxCapacity, int apartmentNumber, int apartmentPrice, int numberOfBedrooms, int numberOfBathrooms)
+        public Apartment(Person renter, int maxCapacity, int apartmentNumber, int apartmentPrice, int numberOfBedrooms, int numberOfBathrooms)
         {
-            super(renterName, maxCapacity);
+            super(renter, maxCapacity);
             this.apartmentNumber = apartmentNumber;
             this.apartmentPrice = apartmentPrice;
             this.numberOfBedrooms = numberOfBedrooms;
