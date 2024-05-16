@@ -44,66 +44,7 @@ public class ViewPeoplePanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-//				new DeletePersonDialog(displayPersons);
-				JDialog deletePersonDialog = new JDialog();
-				deletePersonDialog.setTitle("Delete Person by SSN");
-				deletePersonDialog.setSize(400, 100);
-				deletePersonDialog.setLayout(new BoxLayout(deletePersonDialog.getContentPane(), BoxLayout.Y_AXIS));
-				Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-				deletePersonDialog.setLocation(dim.width / 2 - deletePersonDialog.getSize().width / 2,
-						dim.height / 2 - deletePersonDialog.getSize().height / 2);
-				
-				JPanel subPanel = new JPanel();
-				subPanel.setSize(new Dimension(300, 100));
-				JLabel jl = new JLabel("Enter SSN:");
-				jl.setHorizontalAlignment(SwingConstants.CENTER);
-				JTextField ssnField = new JTextField();
-				subPanel.add(jl);
-				subPanel.add(ssnField);
-				JButton deleteSubmitButton = new JButton("Delete");
-				ssnField.setSize(new Dimension(100, 50));
-				
-				deletePersonDialog.add(jl);
-				deletePersonDialog.add(ssnField);
-//				deletePersonDialog.add(subPanel);
-				deletePersonDialog.add(deleteSubmitButton);
-				deletePersonDialog.setVisible(true);
-				deletePersonDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-				
-				deleteSubmitButton.addActionListener(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e)
-					{
-						Long ssn;
-						try {
-							if (!GUI.db.getAllPersons().isEmpty()) {
-								ssn = Long.parseLong(ssnField.getText());
-								for (Person p : GUI.db.getAllPersons()) {
-									if (p.getSSN() == ssn) {
-										System.out.println("Deleting: " + ssn);
-										GUI.db.removePerson(p);
-										deletePersonDialog.dispose();
-										revalidate();
-										repaint();
-									} else {
-										new ErrorDialog("There is no person matching that SSN");
-									}
-									
-								}
-							} else {
-								new ErrorDialog("There are no persons at this time");
-							}
-							
-							
-						} catch (NumberFormatException ex) {
-							new ErrorDialog("Unable to format SSN");
-						}
-						
-						
-						
-					}
-					
-				});
+				new DeletePersonDialog();
 			}
 			
 		});
