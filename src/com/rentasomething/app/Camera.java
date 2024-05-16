@@ -1,4 +1,4 @@
-package src.com.rentasomething.app;
+package com.rentasomething.app;
 
 /**
  * Lead Author(s):
