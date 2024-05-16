@@ -24,7 +24,7 @@ import javax.swing.SwingConstants;
  *         Version/date: March-18-2024
  * 
  *         Responsibilities of class:
- *         Allows for creation of persons
+ *         This will manage the Panel used to a create a Person object
  */
 
 public class CreatePersonPanel extends JPanel

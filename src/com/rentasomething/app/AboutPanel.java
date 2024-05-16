@@ -6,6 +6,19 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Anjolaoluwa Akinremi
+ * @author Kaitlyn Nguy
+ * 
+ *         References:
+ *         Version/date: May-12-2024
+ * 
+ *         Responsibilities of class:
+ *         This class will manage the JPanel that gives information about the program
+ */
+
 public class AboutPanel extends JPanel
 {
 	public AboutPanel() {

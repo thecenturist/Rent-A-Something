@@ -8,6 +8,7 @@ import java.util.Hashtable;
  * Lead Author(s):
  * 
  * @author Anjolaoluwa Akinremi
+ * @author Kaitlyn Nguy
  * 
  *         References:
  *         Version/date: May-12-2024

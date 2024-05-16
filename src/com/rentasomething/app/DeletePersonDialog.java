@@ -13,6 +13,19 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Anjolaoluwa Akinremi
+ * @author Kaitlyn Nguy
+ * 
+ *         References:
+ *         Version/date: May-12-2024
+ * 
+ *         Responsibilities of class:
+ *         This will handle the Dialog used to delete a Person object
+ */
+
 public class DeletePersonDialog extends JDialog
 {
 	public DeletePersonDialog() {

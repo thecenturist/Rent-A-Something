@@ -25,7 +25,7 @@ import javax.swing.JTextField;
  *         Version/date: May-15-2024
  * 
  *         Responsibilities of class:
- *         Creates apartment object
+ *         This will handle the Dialog that creates a new Apartment
  */
 
 public class CreateApartmentDialog extends JDialog
@@ -115,7 +115,6 @@ public class CreateApartmentDialog extends JDialog
 				{
 					// TODO: Properly validate that SSN is only numbers, and if
 					// not, throw error pop up
-					// TODO: Save person to database (csv file)
 					Hashtable<String, Person> personIdentification = Database
 							.getNames();
 					Apartment apartment = new Apartment(

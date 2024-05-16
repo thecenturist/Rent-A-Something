@@ -8,6 +8,19 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Anjolaoluwa Akinremi
+ * @author Kaitlyn Nguy
+ * 
+ *         References:
+ *         Version/date: May-12-2024
+ * 
+ *         Responsibilities of class:
+ *         This will handle the Dialog used to create a Phone Product
+ */
+
 public class CreatePhoneDialog extends JDialog
 {
 	public CreatePhoneDialog() {

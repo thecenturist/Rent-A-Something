@@ -20,18 +20,25 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Anjolaoluwa Akinremi
+ * @author Kaitlyn Nguy
+ * 
+ *         References:
+ *         Version/date: May-12-2024
+ * 
+ *         Responsibilities of class:
+ *         This will manage the JPanel that will display all persons that exist in the program.
+ */
+
 public class ViewPeoplePanel extends JPanel
 {
 
 	public ViewPeoplePanel()
 	{
 		this.setLayout(new BorderLayout());
-
-		// TODO: Write GUI code to display all Persons in the database, the rows
-		// should include buttons to edit and delete the person. Preferably,
-		// when the edit button is pressed, the firstname, lastname, and ssn
-		// labels should turn into textfields with the content present for
-		// editing.
 		JPanel northPanel = new JPanel();
 		JLabel createTitle = new JLabel("VIEW PEOPLE");
 		northPanel.add(createTitle);
