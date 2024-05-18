@@ -53,13 +53,11 @@ public class GUI extends JFrame
 
 		JMenuItem createCarProduct = new JMenuItem("CAR");
 		JMenuItem createBoatProduct = new JMenuItem("BOAT");
-		JMenuItem createMotorcycleProduct = new JMenuItem("MOTORCYCLE");
 		JMenuItem createPhoneProduct = new JMenuItem("PHONE");
 		JMenuItem createCameraProduct = new JMenuItem("CAMERA");
 
 		createVehicleProduct.add(createCarProduct);
 		createVehicleProduct.add(createBoatProduct);
-		createVehicleProduct.add(createMotorcycleProduct);
 
 		createElectronicProduct.add(createPhoneProduct);
 		createElectronicProduct.add(createCameraProduct);
@@ -107,15 +105,6 @@ public class GUI extends JFrame
 			public void actionPerformed(ActionEvent e)
 			{
 				new CreateBoatDialog();
-			}
-		});
-
-		createMotorcycleProduct.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				new CreateMotorcycleDialog();
 			}
 		});
 
