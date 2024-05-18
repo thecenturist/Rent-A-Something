@@ -10,6 +10,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -57,17 +58,17 @@ public class DeletePersonDialog extends JDialog
 				try {
 					if (!GUI.db.getAllPersons().isEmpty()) {
 						ssn = Long.parseLong(ssnField.getText());
-						for (Person p : GUI.db.getAllPersons()) {
-							if (p.getSSN() == ssn) {
-								System.out.println("Deleting: " + ssn);
-								GUI.db.removePerson(p);
-								dispose();
-								revalidate();
-								repaint();
-							} else {
-								new ErrorDialog("There is no person matching that SSN");
-							}
-							
+						Person databaseResult = GUI.db.getPersonBySSN(ssn);
+						if(databaseResult != null) {
+							System.out.println("Deleting: " + ssn);
+							GUI.db.removePerson(databaseResult);
+							getParent().revalidate();
+							getParent().repaint();
+							dispose();
+//							revalidate();
+//							repaint();
+						} else {
+							new ErrorDialog("There is no person matching that SSN");
 						}
 					} else {
 						new ErrorDialog("There are no persons at this time");
