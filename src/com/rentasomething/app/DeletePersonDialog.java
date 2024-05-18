@@ -32,6 +32,7 @@ public class DeletePersonDialog extends JDialog
 	public DeletePersonDialog() {
 		this.setTitle("Delete Person by SSN");
 		this.setSize(400, 100);
+		this.setModal(true);
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width / 2 - this.getSize().width / 2,
