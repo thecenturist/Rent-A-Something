@@ -209,6 +209,11 @@ public class GUI extends JFrame
 
 	public static void main(String[] args)
 	{
+		// Sample People: Do Not Delete
+		GUI.db.addPerson(new Person("Anjolaoluwa", "Akinremi", 333353L));
+		GUI.db.addPerson(new Person("Kendrick", "Rock", 333333L));
+		GUI.db.addPerson(new Person("Halleberry", "Hallelujah", 533333L));
+		GUI.db.addPerson(new Person("Kaitlyn", "Nguy", 333433L));
 		new GUI();
 	}
 }
