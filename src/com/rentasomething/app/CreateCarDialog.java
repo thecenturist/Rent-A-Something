@@ -63,11 +63,6 @@ public class CreateCarDialog extends JDialog
 		centerPanel.add(yLabel);
 		centerPanel.add(yTextField);
 
-		JLabel miLabel = new JLabel("   Mileage:");
-		JTextField miTextField = new JTextField();
-		centerPanel.add(miLabel);
-		centerPanel.add(miTextField);
-
 		JButton createButton = new JButton("Create");
 		bottomPanel.add(createButton);
 
@@ -84,8 +79,7 @@ public class CreateCarDialog extends JDialog
 				try {
 					if (maTextField.getText().isEmpty()
 							|| moTextField.getText().isEmpty()
-							|| yTextField.getText().isEmpty()
-							|| miTextField.getText().isEmpty())
+							|| yTextField.getText().isEmpty())
 					{
 						new ErrorDialog("Fields cannot be empty");
 					}
@@ -97,13 +91,13 @@ public class CreateCarDialog extends JDialog
 								moTextField.getText(),
 								Integer.parseInt(yTextField.getText()),
 								personIdentification
-										.get(rnComboBox.getSelectedItem()),
-								Long.parseLong(miTextField.getText()));
+										.get(rnComboBox.getSelectedItem()));
 						GUI.db.addProduct("vehicle", car);
 						dispose();
 					}
 				} catch (Exception ex) {
 					new ErrorDialog("Something went wrong. Try again.");
+					ex.printStackTrace();
 				}
 				
 			}
