@@ -31,7 +31,7 @@ public class GUI extends JFrame
 	public GUI()
 	{
 		// Set Program Window title and dimension
-		this.setTitle("LJC Resort & Housing Rental System");
+		this.setTitle("LJC Rental System");
 		this.setSize(1000, 500);
 
 		// Center to screen
