@@ -3,6 +3,7 @@ package com.rentasomething.app;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 
 /**
  * Lead Author(s):
@@ -22,37 +23,55 @@ import java.util.Hashtable;
 public class Database
 {
 	private static ArrayList<Person> people; // A Database has-a people
-	private HashMap<String, ArrayList<Product>> products; // A Database has-a
+	private static HashMap<String, ArrayList<Product>> products; // A Database has-a
 															// products
-	private static Hashtable<String, Person> peopleNames;
-	private static String[] nameArray;
+	private static Hashtable<String, Person> peopleNames; // A Database has-a peopleNames
+	private static String[] nameArray; // A Database has-a nameArray
 
 	public Database()
 	{
 		// Initialize 'tables'
-		this.people = new ArrayList<Person>();
-		this.products = new HashMap<String, ArrayList<Product>>();
+		Database.people = new ArrayList<Person>();
+		Database.products = new HashMap<String, ArrayList<Product>>();
+		Database.products.put("vehicle", new ArrayList<Product>());
 
 	}
 
+	/**
+	 * Add a person to the database
+	 * @param p
+	 */
 	public void addPerson(Person p)
 	{
-		this.people.add(p);
+		Database.people.add(p);
 	}
 
+	/**
+	 * Remove a person from the database
+	 * @param p
+	 */
 	public void removePerson(Person p)
 	{
-		this.people.remove(p);
+		Database.people.remove(p);
 	}
 
+	/**
+	 * Retrieve all persons in the database
+	 * @return ArrayList<Person>
+	 */
 	public ArrayList<Person> getAllPersons()
 	{
-		return this.people;
+		return Database.people;
 	}
 
+	/**
+	 * Retrieve person object with matching ssn, el
+	 * @param ssn
+	 * @return Person if found, else null
+	 */
 	public Person getPersonBySSN(Long ssn)
 	{
-		for (Person p : this.people)
+		for (Person p : Database.people)
 		{
 			if (p.getSSN() == ssn)
 			{
@@ -62,6 +81,10 @@ public class Database
 		return null;
 	}
 
+	/**
+	 * Return the names of people in the database
+	 * @return String[]
+	 */
 	public static String[] namesArray()
 	{
 		int personInc = 1;
@@ -76,6 +99,10 @@ public class Database
 		return nameArray;
 	}
 
+	/**
+	 * Get the names of the people in the database
+	 * @return Hashtable<String, Person>
+	 */
 	public static Hashtable<String, Person> getNames()
 	{
 		peopleNames = new Hashtable<>();
@@ -86,12 +113,43 @@ public class Database
 		return peopleNames;
 	}
 
+	/**
+	 * Return all the products in the database
+	 * @return HashMap<String, ArrayList<Product>>
+	 */
 	public HashMap<String, ArrayList<Product>> getAllProducts()
 	{
-		return this.products;
+		return Database.products;
 	}
 	
+	/**
+	 * Add a product to the database of a type
+	 * @param type
+	 * @param product
+	 */
 	public void addProduct(String type, Product product) {
-		this.products.get(type).add(product);
+		Database.products.get(type).add(product);
+	}
+	
+	/**
+	 * Retrieve the number of products in the database
+	 * @return int
+	 */
+	public int getInventoryCount() {
+		int count = 0;
+		
+		for (Map.Entry<String, ArrayList<Product>> set : Database.products.entrySet()) {
+			count += set.getValue().size();
+           }
+		return count;
+	}
+	
+	/**
+	 * Retrieve all products of a type
+	 * @param type
+	 * @return ArrayList<Product>
+	 */
+	public ArrayList<Product> getProductForType(String type){
+		return Database.products.get(type);
 	}
 }
