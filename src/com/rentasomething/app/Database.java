@@ -90,4 +90,8 @@ public class Database
 	{
 		return this.products;
 	}
+	
+	public void addProduct(String type, Product product) {
+		this.products.get(type).add(product);
+	}
 }
