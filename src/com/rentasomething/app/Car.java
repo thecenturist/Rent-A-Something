@@ -15,38 +15,15 @@ package com.rentasomething.app;
 // A Car is-a Vehicle
 public class Car extends Vehicle
 {
-	private long odometerReading; // A Car has-a odometerReading
 
-	Car(String manufacturer, String model, int year, Person person,
-			long mileage)
+	Car(String manufacturer, String model, int year, Person person)
 	{
 		super(manufacturer, model, year, person);
-		this.odometerReading = mileage;
 	}
 
-	Car(Vehicle vehicle, long mileage)
+	Car(Vehicle vehicle)
 	{
 		this(vehicle.getManufacturer(), vehicle.getModel(), vehicle.getYear(),
-				vehicle.getRenter(), mileage);
-	}
-
-	/**
-	 * Return the value of the odometer reading
-	 * 
-	 * @return double
-	 */
-	public long getOdometerReading()
-	{
-		return this.odometerReading;
-	}
-
-	/**
-	 * Set the odometer reading
-	 * 
-	 * @param mileage
-	 */
-	public void setOdometerReading(long mileage)
-	{
-		this.odometerReading = mileage;
+				vehicle.getRenter());
 	}
 }
