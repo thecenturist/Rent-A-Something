@@ -81,38 +81,31 @@ public class CreateCarDialog extends JDialog
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				if (maTextField.getText().isEmpty()
-						|| moTextField.getText().isEmpty()
-						|| yTextField.getText().isEmpty()
-						|| miTextField.getText().isEmpty())
-				{
-					new ErrorDialog("Fields cannot be empty");
+				try {
+					if (maTextField.getText().isEmpty()
+							|| moTextField.getText().isEmpty()
+							|| yTextField.getText().isEmpty()
+							|| miTextField.getText().isEmpty())
+					{
+						new ErrorDialog("Fields cannot be empty");
+					}
+					else
+					{
+						Hashtable<String, Person> personIdentification = Database
+								.getNames();
+						Car car = new Car(maTextField.getText(),
+								moTextField.getText(),
+								Integer.parseInt(yTextField.getText()),
+								personIdentification
+										.get(rnComboBox.getSelectedItem()),
+								Long.parseLong(miTextField.getText()));
+						GUI.db.addProduct("vehicle", car);
+						dispose();
+					}
+				} catch (Exception ex) {
+					new ErrorDialog("Something went wrong. Try again.");
 				}
-				else if (ErrorDialog
-						.containsLetters(maTextField.getText()) == true
-						|| ErrorDialog
-								.containsLetters(moTextField.getText()) == true
-						|| ErrorDialog
-								.containsLetters(yTextField.getText()) == true
-						|| ErrorDialog
-								.isDecimal(miTextField.getText()) == false)
-				{
-					new ErrorDialog(
-							"Field 1, 2, must be Strings. Fields 3 must be an Integer. Fields 4 must be numbers.");
-				}
-				else
-				{
-					// TODO: Properly validate that SSN is only numbers, and if
-					// not, throw error pop up
-					Hashtable<String, Person> personIdentification = Database
-							.getNames();
-					Car car = new Car(maTextField.getText(),
-							moTextField.getText(),
-							Integer.parseInt(yTextField.getText()),
-							personIdentification
-									.get(rnComboBox.getSelectedItem()),
-							Long.parseLong(miTextField.getText()));
-				}
+				
 			}
 		});
 
