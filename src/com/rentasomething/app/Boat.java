@@ -24,10 +24,10 @@ public class Boat extends Vehicle
 		super(manufacturer, model, year, renter);
 	}
 
-	Boat(String manufacturer, String model, int year, Person renter,
+	Boat(String manufacturer, String model, int year, Person renter, long rent, long discount,
 			long length, long topSpeed)
 	{
-		super(manufacturer, model, year, renter);
+		super(manufacturer, model, year, renter, rent, discount);
 		this.length = length;
 		this.topSpeed = topSpeed;
 	}

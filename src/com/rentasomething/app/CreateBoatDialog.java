@@ -35,7 +35,7 @@ public class CreateBoatDialog extends JDialog
 	{
 		JPanel bottomPanel = new JPanel();
 		JPanel centerPanel = new JPanel();
-		centerPanel.setLayout(new GridLayout(6, 2, 5, 18));
+		centerPanel.setLayout(new GridLayout(8, 2, 5, 18));
 
 		this.setTitle("Create Boat");
 		this.setSize(400, 300);
@@ -64,6 +64,16 @@ public class CreateBoatDialog extends JDialog
 		centerPanel.add(yLabel);
 		centerPanel.add(yTextField);
 
+		JLabel rentLabel = new JLabel("   Rent:");
+		JTextField rentTextField = new JTextField();
+		centerPanel.add(rentLabel);
+		centerPanel.add(rentTextField);
+
+		JLabel discountLabel = new JLabel("   Discount:");
+		JTextField discountTextField = new JTextField();
+		centerPanel.add(discountLabel);
+		centerPanel.add(discountTextField);
+
 		JLabel lLabel = new JLabel("   Length of Boat:");
 		JTextField lTextField = new JTextField();
 		centerPanel.add(lLabel);
@@ -91,14 +101,13 @@ public class CreateBoatDialog extends JDialog
 					if (maTextField.getText().isEmpty()
 							|| moTextField.getText().isEmpty()
 							|| yTextField.getText().isEmpty() || lTextField.getText().isEmpty()
-							|| tsTextField.getText().isEmpty())
+							|| tsTextField.getText().isEmpty() || rentTextField.getText().isEmpty() || discountTextField.getText().isEmpty())
 					{
 						new ErrorDialog("Fields cannot be empty");
 					}
 					else if(ErrorDialog.containsLetters(yTextField.getText()) || ErrorDialog.isDecimal(lTextField.getText()) == false
-					|| ErrorDialog
-							.isDecimal(tsTextField.getText()) == false) {
-						new ErrorDialog("Field 3 must be an integer. Field 4,5 must be a number");
+					|| ErrorDialog.isDecimal(tsTextField.getText()) == false || ErrorDialog.isDecimal(rentTextField.getText()) == false || ErrorDialog.isDecimal(discountTextField.getText()) == false) {
+						new ErrorDialog("Field 3 must be an integer. Field 4,5,6,7 must be a number");
 					}
 					else
 					{
@@ -108,7 +117,7 @@ public class CreateBoatDialog extends JDialog
 								moTextField.getText(),
 								Integer.parseInt(yTextField.getText()),
 								personIdentification
-										.get(rnComboBox.getSelectedItem()),
+										.get(rnComboBox.getSelectedItem()), Long.parseLong(rentTextField.getText()), Long.parseLong(discountTextField.getText()),
 								Long.parseLong(lTextField.getText()),
 								Long.parseLong(tsTextField.getText()));
 						JDialog jd = new JDialog();
