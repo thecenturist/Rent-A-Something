@@ -26,7 +26,7 @@ public class ViewProductPanel extends JPanel
 {
 	private int cap;
 	private String[][] data;
-	private JPanel products, centerPanel;
+	private JPanel products;
 
 	public ViewProductPanel(){
 		this.setLayout(new BorderLayout());
@@ -60,7 +60,7 @@ public class ViewProductPanel extends JPanel
 			centerPanel.add(new JLabel(" "));
 		}
 		else {
-			centerPanel.add(new JLabel("NO ITEMS YET"));
+			centerPanel.add(new JLabel("NO ITEMS YET", SwingConstants.CENTER));
 		}
 
         
@@ -93,6 +93,8 @@ public class ViewProductPanel extends JPanel
 		products = new JPanel();
 		products.setLayout(new BorderLayout());
 		if(GUI.db.getProductForType(str).isEmpty() != true) {
+			cap = GUI.db.getProductForType(str).size();
+			data = new String[cap][5];
 			for (int i = 0; i < cap; i++) {
 				Electronic temp = (Electronic) GUI.db.getProductForType(str).get(i);
 				data[i][0] = temp.getManufacturer();
