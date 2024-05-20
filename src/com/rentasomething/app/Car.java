@@ -16,14 +16,14 @@ package com.rentasomething.app;
 public class Car extends Vehicle
 {
 
-	Car(String manufacturer, String model, int year, Person person)
+	Car(String manufacturer, String model, int year, Person person, long rent, long discount)
 	{
-		super(manufacturer, model, year, person);
+		super(manufacturer, model, year, person, rent, discount);
 	}
 
 	Car(Vehicle vehicle)
 	{
 		this(vehicle.getManufacturer(), vehicle.getModel(), vehicle.getYear(),
-				vehicle.getRenter());
+				vehicle.getRenter(), vehicle.getRentAmount(), vehicle.getDiscountPercentage());
 	}
 }

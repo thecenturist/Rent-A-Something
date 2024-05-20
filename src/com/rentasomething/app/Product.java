@@ -13,19 +13,19 @@ package com.rentasomething.app;
 
 public class Product extends Item implements Rental
 {
-	private double rentAmount; // A Product has-a rentAmount
-	private double discountPercent; // A Product has-a discountPercent
+	private long rentAmount; // A Product has-a rentAmount
+	private long discountPercent; // A Product has-a discountPercent
 	
-	Product(double rent, double discount){
+	Product(long rent, long discount){
 		this.rentAmount = rent;
 		this.discountPercent = discount;
 	}
 	
 	/**
 	 * Return the rent amount per hour of the Vehicle
-	 * @return double
+	 * @return long
 	 */
-	public double getRentAmount()
+	public long getRentAmount()
 	{
 		return this.rentAmount;
 	}
@@ -34,7 +34,7 @@ public class Product extends Item implements Rental
 	 * Set the rent amount of the Vehicle
 	 * @param rent
 	 */
-	public void setRentAmount(double rent)
+	public void setRentAmount(long rent)
 	{
 		this.rentAmount = rent;
 	}
@@ -43,16 +43,16 @@ public class Product extends Item implements Rental
 	 * Set discount percentage of the Vehicle's rent
 	 * @param discount
 	 */
-	public void setDiscountPercentage(double discount)
+	public void setDiscountPercentage(long discount)
 	{
 		this.discountPercent = discount;
 	}
 
 	/**
 	 * Return the discount percentage of the Vehicle
-	 * @return double
+	 * @return long
 	 */
-	public double getDiscountPercentage()
+	public long getDiscountPercentage()
 	{
 		return this.discountPercent;
 	}

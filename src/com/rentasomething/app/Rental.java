@@ -13,11 +13,11 @@ package com.rentasomething.app;
 
 public interface Rental
 {
-	double getRentAmount();
+	long getRentAmount();
 	
-	void setRentAmount(double rent);
+	void setRentAmount(long rent);
 	
-	void setDiscountPercentage(double discount);
+	void setDiscountPercentage(long discount);
 	
-	double getDiscountPercentage();
+	long getDiscountPercentage();
 }
