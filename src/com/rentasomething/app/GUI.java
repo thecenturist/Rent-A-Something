@@ -182,5 +182,7 @@ public class GUI extends JFrame
 		GUI.db.addProduct("car",new Vehicle("Tesla", "3", 2018, new Person("Anjolaoluwa", "Akinremi", 33L), 1000, 20));
 		GUI.db.addProduct("camera", new Electronic(new Person("Anjolaoluwa", "Akinremi", 33L), "Nikon", "3", "2018", 10000, 50));
 		GUI.db.addProduct("phone", new Electronic(new Person("Anjolaoluwa", "Akinremi", 33L), "Apple", "iPhone", "X", 10000, 50));
+		
+		new GUI();
 	}
 }
