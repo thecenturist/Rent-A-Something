@@ -14,6 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 /**
  * Lead Author(s):
@@ -83,6 +84,9 @@ public class CreateCarDialog extends JDialog
 					{
 						new ErrorDialog("Fields cannot be empty");
 					}
+					else if(ErrorDialog.containsLetters(yTextField.getText())) {
+						new ErrorDialog("Field 3 must be an integer");
+					}
 					else
 					{
 						Hashtable<String, Person> personIdentification = Database
@@ -92,6 +96,17 @@ public class CreateCarDialog extends JDialog
 								Integer.parseInt(yTextField.getText()),
 								personIdentification
 										.get(rnComboBox.getSelectedItem()));
+						JDialog jd = new JDialog();
+						jd.setTitle("SUCCESS");
+						jd.setSize(400, 100);
+						Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+						jd.setLocation(dim.width / 2 - jd.getSize().width / 2,
+								dim.height / 2 - jd.getSize().height / 2);
+						JLabel jl = new JLabel("Car created successfully");
+						jl.setHorizontalAlignment(SwingConstants.CENTER);
+						jd.add(jl);
+						jd.setVisible(true);
+						jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 						GUI.db.addProduct("vehicle", car);
 						dispose();
 					}
