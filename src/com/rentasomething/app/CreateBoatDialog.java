@@ -38,7 +38,7 @@ public class CreateBoatDialog extends JDialog
 		centerPanel.setLayout(new GridLayout(8, 2, 5, 18));
 
 		this.setTitle("Create Boat");
-		this.setSize(400, 300);
+		this.setSize(400, 350);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width / 2 - this.getSize().width / 2,
 				dim.height / 2 - this.getSize().height / 2);
