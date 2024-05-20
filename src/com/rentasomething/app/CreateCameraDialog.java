@@ -14,6 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 /**
  * Lead Author(s):
@@ -96,41 +97,32 @@ public class CreateCameraDialog extends JDialog
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				if (manTextField.getText().isEmpty()
-						|| bTextField.getText().isEmpty()
-						|| moTextField.getText().isEmpty()
-						|| mpTextField.getText().isEmpty()
-						|| sWidthTextField.getText().isEmpty()
-						|| sLengthTextField.getText().isEmpty()
-						|| sAreaTextField.getText().isEmpty())
-				{
-					new ErrorDialog("Fields cannot be empty");
-				}
-				else if (ErrorDialog
-						.containsNumbers(manTextField.getText()) == true
-						|| ErrorDialog
-								.containsNumbers(bTextField.getText()) == true
-						|| ErrorDialog
-								.containsNumbers(moTextField.getText()) == true
-						|| ErrorDialog
-								.containsLetters(mpTextField.getText()) == true
-						|| ErrorDialog.containsLetters(
-								sWidthTextField.getText()) == true
-						|| ErrorDialog.containsLetters(
-								sLengthTextField.getText()) == true
-						|| ErrorDialog.containsLetters(
-								sAreaTextField.getText()) == true)
-				{
-					new ErrorDialog(
-							"Field 1, 2, 3, 5 must be Strings. Fields 4, 6 must be an Integer.");
-				}
-				else
-				{
-					// TODO: Properly validate that SSN is only numbers, and if
-					// not, throw error pop up
-					Hashtable<String, Person> personIdentification = Database
-							.getNames();
-					Camera camera = new Camera(
+				try {
+					if (manTextField.getText().isEmpty()
+					|| bTextField.getText().isEmpty()
+					|| moTextField.getText().isEmpty()
+					|| mpTextField.getText().isEmpty()
+					|| sWidthTextField.getText().isEmpty()
+					|| sLengthTextField.getText().isEmpty()
+					|| sAreaTextField.getText().isEmpty())
+					{
+						new ErrorDialog("Fields cannot be empty");
+					}
+					else if(ErrorDialog
+					.containsLetters(mpTextField.getText()) == true
+					|| ErrorDialog.containsLetters(
+							sWidthTextField.getText()) == true
+					|| ErrorDialog.containsLetters(
+							sLengthTextField.getText()) == true
+					|| ErrorDialog.containsLetters(
+							sAreaTextField.getText()) == true) {
+						new ErrorDialog("Field 4,5,6,7 must be an integer");
+					}
+					else
+					{
+						Hashtable<String, Person> personIdentification = Database
+								.getNames();
+						Camera camera = new Camera(
 							personIdentification
 									.get(rnComboBox.getSelectedItem()),
 							manTextField.getText(), bTextField.getText(),
@@ -139,7 +131,25 @@ public class CreateCameraDialog extends JDialog
 							Integer.parseInt(sWidthTextField.getText()),
 							Integer.parseInt(sLengthTextField.getText()),
 							Integer.parseInt(sAreaTextField.getText()));
+						JDialog jd = new JDialog();
+						jd.setTitle("SUCCESS");
+						jd.setSize(400, 100);
+						Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+						jd.setLocation(dim.width / 2 - jd.getSize().width / 2,
+								dim.height / 2 - jd.getSize().height / 2);
+						JLabel jl = new JLabel("Camera created successfully");
+						jl.setHorizontalAlignment(SwingConstants.CENTER);
+						jd.add(jl);
+						jd.setVisible(true);
+						jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+						GUI.db.addProduct("camera", camera);
+						dispose();
+					}
+				} catch (Exception ex) {
+					new ErrorDialog("Something went wrong. Try again.");
+					ex.printStackTrace();
 				}
+				
 			}
 		});
 	}

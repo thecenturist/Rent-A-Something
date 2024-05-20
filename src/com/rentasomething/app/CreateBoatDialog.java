@@ -122,7 +122,7 @@ public class CreateBoatDialog extends JDialog
 						jd.add(jl);
 						jd.setVisible(true);
 						jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-						GUI.db.addProduct("vehicle", boat);
+						GUI.db.addProduct("boat", boat);
 						dispose();
 					}
 				} catch (Exception ex) {

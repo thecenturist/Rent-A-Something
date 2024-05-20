@@ -33,8 +33,10 @@ public class Database
 		// Initialize 'tables'
 		Database.people = new ArrayList<Person>();
 		Database.products = new HashMap<String, ArrayList<Product>>();
-		Database.products.put("vehicle", new ArrayList<Product>());
-
+		Database.products.put("car", new ArrayList<Product>());
+		Database.products.put("boat", new ArrayList<Product>());
+		Database.products.put("camera", new ArrayList<Product>());
+		Database.products.put("phone", new ArrayList<Product>());
 	}
 
 	/**

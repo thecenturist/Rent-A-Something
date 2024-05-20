@@ -107,7 +107,7 @@ public class CreateCarDialog extends JDialog
 						jd.add(jl);
 						jd.setVisible(true);
 						jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-						GUI.db.addProduct("vehicle", car);
+						GUI.db.addProduct("car", car);
 						dispose();
 					}
 				} catch (Exception ex) {

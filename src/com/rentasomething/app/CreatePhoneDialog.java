@@ -14,6 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 /**
  * Lead Author(s):
@@ -91,45 +92,51 @@ public class CreatePhoneDialog extends JDialog
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				if (manTextField.getText().isEmpty()
-						|| bTextField.getText().isEmpty()
-						|| moTextField.getText().isEmpty()
-						|| massTextField.getText().isEmpty()
-						|| cpuTextField.getText().isEmpty()
-						|| caTextField.getText().isEmpty())
-				{
-					new ErrorDialog("Fields cannot be empty");
-				}
-				else if (ErrorDialog
-						.containsNumbers(manTextField.getText()) == true
-						|| ErrorDialog
-								.containsNumbers(bTextField.getText()) == true
-						|| ErrorDialog
-								.containsNumbers(moTextField.getText()) == true
-						|| ErrorDialog.containsLetters(
-								massTextField.getText()) == true
-						|| ErrorDialog
-								.containsNumbers(cpuTextField.getText()) == true
-						|| ErrorDialog
-								.containsLetters(caTextField.getText()) == true)
-				{
-					new ErrorDialog(
-							"Field 1, 2, 3, 5 must be Strings. Fields 4, 6 must be an Integer.");
-				}
-				else
-				{
-					// TODO: Properly validate that SSN is only numbers, and if
-					// not, throw error pop up
-					Hashtable<String, Person> personIdentification = Database
-							.getNames();
-					Phone phone = new Phone(
-							personIdentification
-									.get(rnComboBox.getSelectedItem()),
-							manTextField.getText(), bTextField.getText(),
-							moTextField.getText(),
-							Integer.parseInt(massTextField.getText()),
-							cpuTextField.getText(),
-							Integer.parseInt(caTextField.getText()));
+				try {
+					if (manTextField.getText().isEmpty()
+					|| bTextField.getText().isEmpty()
+					|| moTextField.getText().isEmpty()
+					|| massTextField.getText().isEmpty()
+					|| cpuTextField.getText().isEmpty()
+					|| caTextField.getText().isEmpty())
+					{
+						new ErrorDialog("Fields cannot be empty");
+					}
+					else if(ErrorDialog.containsLetters(
+						massTextField.getText()) == true
+					|| ErrorDialog
+							.containsLetters(caTextField.getText()) == true) {
+						new ErrorDialog("Fields 4,6 must be an integer");
+					}
+					else
+					{
+						Hashtable<String, Person> personIdentification = Database
+								.getNames();
+								Phone phone = new Phone(
+									personIdentification
+											.get(rnComboBox.getSelectedItem()),
+									manTextField.getText(), bTextField.getText(),
+									moTextField.getText(),
+									Integer.parseInt(massTextField.getText()),
+									cpuTextField.getText(),
+									Integer.parseInt(caTextField.getText()));
+						JDialog jd = new JDialog();
+						jd.setTitle("SUCCESS");
+						jd.setSize(400, 100);
+						Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+						jd.setLocation(dim.width / 2 - jd.getSize().width / 2,
+								dim.height / 2 - jd.getSize().height / 2);
+						JLabel jl = new JLabel("Phone created successfully");
+						jl.setHorizontalAlignment(SwingConstants.CENTER);
+						jd.add(jl);
+						jd.setVisible(true);
+						jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+						GUI.db.addProduct("phone", phone);
+						dispose();
+					}
+				} catch (Exception ex) {
+					new ErrorDialog("Something went wrong. Try again.");
+					ex.printStackTrace();
 				}
 			}
 		});
