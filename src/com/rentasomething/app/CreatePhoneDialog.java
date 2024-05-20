@@ -35,7 +35,7 @@ public class CreatePhoneDialog extends JDialog
 	{
 		JPanel bottomPanel = new JPanel();
 		JPanel centerPanel = new JPanel();
-		centerPanel.setLayout(new GridLayout(7, 2, 5, 18));
+		centerPanel.setLayout(new GridLayout(9, 2, 5, 18));
 
 		this.setTitle("Create Phone");
 		this.setSize(400, 300);
@@ -63,6 +63,16 @@ public class CreatePhoneDialog extends JDialog
 		JTextField moTextField = new JTextField();
 		centerPanel.add(moLabel);
 		centerPanel.add(moTextField);
+
+		JLabel rentLabel = new JLabel("   Rent:");
+		JTextField rentTextField = new JTextField();
+		centerPanel.add(rentLabel);
+		centerPanel.add(rentTextField);
+
+		JLabel discountLabel = new JLabel("   Discount:");
+		JTextField discountTextField = new JTextField();
+		centerPanel.add(discountLabel);
+		centerPanel.add(discountTextField);
 
 		JLabel massLabel = new JLabel("   Mass:");
 		JTextField massTextField = new JTextField();
@@ -98,15 +108,18 @@ public class CreatePhoneDialog extends JDialog
 					|| moTextField.getText().isEmpty()
 					|| massTextField.getText().isEmpty()
 					|| cpuTextField.getText().isEmpty()
-					|| caTextField.getText().isEmpty())
+					|| caTextField.getText().isEmpty() 
+					|| rentTextField.getText().isEmpty() 
+					|| discountTextField.getText().isEmpty())
 					{
 						new ErrorDialog("Fields cannot be empty");
 					}
 					else if(ErrorDialog.containsLetters(
 						massTextField.getText()) == true
 					|| ErrorDialog
-							.containsLetters(caTextField.getText()) == true) {
-						new ErrorDialog("Fields 4,6 must be an integer");
+							.containsLetters(caTextField.getText()) == true || ErrorDialog.isDecimal(rentTextField.getText()) == false
+							|| ErrorDialog.isDecimal(discountTextField.getText()) == false) {
+						new ErrorDialog("Fields 4,5,6,8 must be an integer");
 					}
 					else
 					{
@@ -116,7 +129,7 @@ public class CreatePhoneDialog extends JDialog
 									personIdentification
 											.get(rnComboBox.getSelectedItem()),
 									manTextField.getText(), bTextField.getText(),
-									moTextField.getText(),
+									moTextField.getText(), Long.parseLong(rentTextField.getText()), Long.parseLong(discountTextField.getText()),
 									Integer.parseInt(massTextField.getText()),
 									cpuTextField.getText(),
 									Integer.parseInt(caTextField.getText()));

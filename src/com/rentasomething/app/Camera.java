@@ -25,16 +25,16 @@ public class Camera extends Electronic
 	private int sensorArea;
 
 	public Camera(Person person, String manufacturer, String brand,
-			String model)
+			String model, long rent, long discount)
 	{
-		super(person, manufacturer, brand, model);
+		super(person, manufacturer, brand, model, rent, discount);
 	}
 
 	public Camera(Person person, String manufacturer, String brand,
-			String model, int megapixels, int sensorWidth, int sensorLength,
+			String model, long rent, long discount, int megapixels, int sensorWidth, int sensorLength,
 			int sensorArea)
 	{
-		super(person, manufacturer, brand, model);
+		super(person, manufacturer, brand, model, rent, discount);
 		this.megapixels = megapixels;
 		this.sensorWidth = sensorWidth;
 		this.sensorLength = sensorLength;

@@ -22,15 +22,15 @@ public class Phone extends Electronic
 	// A Phone has-a numberOfCameras
 	private int numberOfCameras;
 
-	public Phone(Person person, String manufacturer, String brand, String model)
+	public Phone(Person person, String manufacturer, String brand, String model, long rent, long discount)
 	{
 		super(person, manufacturer, brand, model);
 	}
 
-	public Phone(Person person, String manufacturer, String brand, String model,
+	public Phone(Person person, String manufacturer, String brand, String model, long rent, long discount,
 			int mass, String CPU, int numberOfCameras)
 	{
-		super(person, manufacturer, brand, model);
+		super(person, manufacturer, brand, model, rent, discount);
 		this.mass = mass;
 		this.CPU = CPU;
 		this.numberOfCameras = numberOfCameras;

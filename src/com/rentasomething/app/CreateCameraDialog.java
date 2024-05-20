@@ -35,7 +35,7 @@ public class CreateCameraDialog extends JDialog
 	{
 		JPanel bottomPanel = new JPanel();
 		JPanel centerPanel = new JPanel();
-		centerPanel.setLayout(new GridLayout(8, 2, 5, 18));
+		centerPanel.setLayout(new GridLayout(10, 2, 5, 18));
 
 		this.setTitle("Create Camera");
 		this.setSize(400, 300);
@@ -63,6 +63,16 @@ public class CreateCameraDialog extends JDialog
 		JTextField moTextField = new JTextField();
 		centerPanel.add(moLabel);
 		centerPanel.add(moTextField);
+
+		JLabel rentLabel = new JLabel("   Rent:");
+		JTextField rentTextField = new JTextField();
+		centerPanel.add(rentLabel);
+		centerPanel.add(rentTextField);
+
+		JLabel discountLabel = new JLabel("   Discount:");
+		JTextField discountTextField = new JTextField();
+		centerPanel.add(discountLabel);
+		centerPanel.add(discountTextField);
 
 		JLabel mpLabel = new JLabel("   Megapixels:");
 		JTextField mpTextField = new JTextField();
@@ -104,7 +114,9 @@ public class CreateCameraDialog extends JDialog
 					|| mpTextField.getText().isEmpty()
 					|| sWidthTextField.getText().isEmpty()
 					|| sLengthTextField.getText().isEmpty()
-					|| sAreaTextField.getText().isEmpty())
+					|| sAreaTextField.getText().isEmpty()
+					|| rentTextField.getText().isEmpty() 
+					|| discountTextField.getText().isEmpty())
 					{
 						new ErrorDialog("Fields cannot be empty");
 					}
@@ -115,8 +127,10 @@ public class CreateCameraDialog extends JDialog
 					|| ErrorDialog.containsLetters(
 							sLengthTextField.getText()) == true
 					|| ErrorDialog.containsLetters(
-							sAreaTextField.getText()) == true) {
-						new ErrorDialog("Field 4,5,6,7 must be an integer");
+							sAreaTextField.getText()) == true
+					|| ErrorDialog.isDecimal(rentTextField.getText()) == false
+					|| ErrorDialog.isDecimal(discountTextField.getText()) == false) {
+						new ErrorDialog("Field 4,5,6,7,8,9 must be a number");
 					}
 					else
 					{
@@ -126,7 +140,7 @@ public class CreateCameraDialog extends JDialog
 							personIdentification
 									.get(rnComboBox.getSelectedItem()),
 							manTextField.getText(), bTextField.getText(),
-							moTextField.getText(),
+							moTextField.getText(), Long.parseLong(rentTextField.getText()), Long.parseLong(discountTextField.getText()),
 							Integer.parseInt(mpTextField.getText()),
 							Integer.parseInt(sWidthTextField.getText()),
 							Integer.parseInt(sLengthTextField.getText()),

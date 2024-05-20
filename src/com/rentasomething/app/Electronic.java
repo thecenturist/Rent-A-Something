@@ -34,7 +34,7 @@ public class Electronic extends Product
 	}
 
 	public Electronic(Person person, String manufacturer, String brand,
-			String model, double rent, double discount)
+			String model, long rent, long discount)
 	{
 		super(rent, discount);
 		this.renter = person;
