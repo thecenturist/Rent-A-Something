@@ -32,7 +32,7 @@ public class AboutPanel extends JPanel
 
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new GridLayout(3, 2, 5, 18));
-		JLabel aboutText = new JLabel("Created by Anjolaoluwa Akinremi and Kaitlyn for the CISC191 Project.");
+		JLabel aboutText = new JLabel("Created by Anjolaoluwa Akinremi and Kaitlyn Nguy for the CISC191 Project.");
 		aboutText.setHorizontalAlignment(SwingConstants.CENTER);
 		centerPanel.add(aboutText);
 		
