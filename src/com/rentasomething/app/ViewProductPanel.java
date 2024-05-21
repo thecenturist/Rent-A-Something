@@ -106,9 +106,6 @@ public class ViewProductPanel extends JPanel
 			}
 			
 			String[] columnNames = { "Manufacturer", "Brand", "Model", "Rent", "Discount %"};
-			// JTable j = new JTable(data, columnNames);
-			// j.setBounds(30, 40, 200, 300);
-			// products.add(new JScrollPane(j));
 			products.add(new JScrollPane(new JTable(data, columnNames)));
 		}
 		else {
