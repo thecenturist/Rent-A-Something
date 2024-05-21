@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
  * Lead Author(s):
  * 
  * @author Anjolaoluwa Akinremi
+ * @author Kaitlyn Nguy
  * 
  *         References:
  *         Version/date: May-18-2024
@@ -64,7 +65,7 @@ public class ViewProductPanel extends JPanel
 		}
 
         
-		this.add(centerPanel, BorderLayout.CENTER);
+		this.add(new JScrollPane(centerPanel), BorderLayout.CENTER);
 	}
 	private void createVehicleTables(String str) {
 		products = new JPanel();
