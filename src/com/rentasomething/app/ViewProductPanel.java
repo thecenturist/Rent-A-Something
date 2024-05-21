@@ -65,7 +65,7 @@ public class ViewProductPanel extends JPanel
 		}
 
         
-		this.add(new JScrollPane(centerPanel), BorderLayout.CENTER);
+		this.add(centerPanel, BorderLayout.CENTER);
 	}
 	private void createVehicleTables(String str) {
 		products = new JPanel();

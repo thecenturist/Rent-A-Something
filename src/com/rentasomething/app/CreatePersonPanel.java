@@ -90,8 +90,6 @@ public class CreatePersonPanel extends JPanel
 				}
 				else
 				{
-					// TODO: Properly validate that SSN is only numbers, and if
-					// not, throw error pop up
 					Person person = new Person(firstNameField.getText(),
 							lastNameField.getText(),
 							Long.parseLong(ssnField.getText()));
