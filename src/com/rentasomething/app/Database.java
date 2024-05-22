@@ -1,9 +1,15 @@
 package com.rentasomething.app;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
 
 /**
  * Lead Author(s):
@@ -37,6 +43,34 @@ public class Database
 		Database.products.put("boat", new ArrayList<Product>());
 		Database.products.put("camera", new ArrayList<Product>());
 		Database.products.put("phone", new ArrayList<Product>());
+		loadPeopleDatabase();
+	}
+	
+	private void loadPeopleDatabase() {
+		try {
+			Scanner scanner = new Scanner(new File("data.csv"));
+
+			while (scanner.hasNextLine()) {
+				String[] person = scanner.nextLine().split(",");
+				this.addPerson(new Person(person[0], person[1], Long.parseLong(person[2])));
+			}
+
+			scanner.close();
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	private void savePeopleDatabase(ArrayList<Person> people) throws IOException {
+		FileWriter fileWriter = new FileWriter("data.csv");
+	    PrintWriter printWriter = new PrintWriter(fileWriter);
+	    
+		for (Person person : people) {
+			printWriter.println(person.getFirstName() + "," + person.getLastName() + "," + person.getSSN());
+		}
+		printWriter.close();
 	}
 
 	/**
@@ -46,6 +80,11 @@ public class Database
 	public void addPerson(Person p)
 	{
 		Database.people.add(p);
+		try {
+			savePeopleDatabase(Database.people);
+		} catch (IOException e) {
+			new ErrorDialog("Unable to save to database.");
+		}
 	}
 
 	/**
@@ -55,6 +94,11 @@ public class Database
 	public void removePerson(Person p)
 	{
 		Database.people.remove(p);
+		try {
+			savePeopleDatabase(Database.people);
+		} catch (IOException e) {
+			new ErrorDialog("Unable to save to database.");
+		}
 	}
 
 	/**
@@ -131,6 +175,11 @@ public class Database
 	 */
 	public void addProduct(String type, Product product) {
 		Database.products.get(type).add(product);
+		try {
+			saveProductDatabase(Database.products);
+		} catch (IOException e) {
+			new ErrorDialog("Unable to save to database.");
+		}
 	}
 	
 	/**
