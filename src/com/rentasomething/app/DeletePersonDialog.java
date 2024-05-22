@@ -4,13 +4,11 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -32,7 +30,6 @@ public class DeletePersonDialog extends JDialog
 	public DeletePersonDialog() {
 		this.setTitle("Delete Person by SSN");
 		this.setSize(400, 100);
-		this.setModal(true);
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width / 2 - this.getSize().width / 2,
@@ -78,12 +75,8 @@ public class DeletePersonDialog extends JDialog
 					
 				} catch (NumberFormatException ex) {
 					new ErrorDialog("Unable to format SSN");
-				}
-				
-				
-				
+				}	
 			}
-			
 		});
 	}
 }
