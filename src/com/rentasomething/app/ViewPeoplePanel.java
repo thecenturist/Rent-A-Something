@@ -47,7 +47,6 @@ public class ViewPeoplePanel extends JPanel
 		this.add(northPanel, BorderLayout.NORTH);
 		
 		deleteButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
