@@ -175,11 +175,6 @@ public class Database
 	 */
 	public void addProduct(String type, Product product) {
 		Database.products.get(type).add(product);
-		try {
-			saveProductDatabase(Database.products);
-		} catch (IOException e) {
-			new ErrorDialog("Unable to save to database.");
-		}
 	}
 	
 	/**
