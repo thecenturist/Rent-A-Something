@@ -1,4 +1,5 @@
 # Project Proposal
+# Project Proposal
 Our resort and housing complex is opening at La Jolla Cove, and we need an application that manages all rentals, like vehicles, lodgings, and electronics, made by people. For each person that rented an item or service, you can see their personal information, like their name and specifically what they rented under the given category. 
 
 ## Authors:
