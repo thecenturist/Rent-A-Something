@@ -60,9 +60,13 @@ public class Database
 
 			while (scanner.hasNextLine())
 			{
-				String[] person = scanner.nextLine().split(",");
-				this.addPerson(new Person(person[0], person[1],
-						Long.parseLong(person[2])));
+				try {
+					String[] person = scanner.nextLine().split(",");
+					this.addPerson(new Person(person[0], person[1],
+							Long.parseLong(person[2])));
+				} catch (Exception ex) {
+					System.out.println("Unable to read line, moving on");
+				}
 			}
 
 			scanner.close();
