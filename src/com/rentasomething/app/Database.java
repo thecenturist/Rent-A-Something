@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 /**
@@ -29,9 +28,11 @@ import java.util.Scanner;
 public class Database
 {
 	private static ArrayList<Person> people; // A Database has-a people
-	private static HashMap<String, ArrayList<Product>> products; // A Database has-a
-															// products
-	private static Hashtable<String, Person> peopleNames; // A Database has-a peopleNames
+	private static HashMap<String, ArrayList<Product>> products; // A Database
+																	// has-a
+	// products
+	private static Hashtable<String, Person> peopleNames; // A Database has-a
+															// peopleNames
 	private static String[] nameArray; // A Database has-a nameArray
 
 	public Database()
@@ -45,64 +46,92 @@ public class Database
 		Database.products.put("phone", new ArrayList<Product>());
 		loadPeopleDatabase();
 	}
-	
-	private void loadPeopleDatabase() {
-		try {
+
+	/**
+	 * Load the persons in a file into the in-memory object of people
+	 * 
+	 * @return void
+	 */
+	private void loadPeopleDatabase()
+	{
+		try
+		{
 			Scanner scanner = new Scanner(new File("data.csv"));
 
-			while (scanner.hasNextLine()) {
+			while (scanner.hasNextLine())
+			{
 				String[] person = scanner.nextLine().split(",");
-				this.addPerson(new Person(person[0], person[1], Long.parseLong(person[2])));
+				this.addPerson(new Person(person[0], person[1],
+						Long.parseLong(person[2])));
 			}
 
 			scanner.close();
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		}
 	}
-	
-	
-	private void savePeopleDatabase(ArrayList<Person> people) throws IOException {
+
+	/**
+	 * Save persons in the in-memory object to a text file
+	 * 
+	 * @param people
+	 * @throws IOException
+	 */
+	private void savePeopleDatabase(ArrayList<Person> people) throws IOException
+	{
 		FileWriter fileWriter = new FileWriter("data.csv");
-	    PrintWriter printWriter = new PrintWriter(fileWriter);
-	    
-		for (Person person : people) {
-			printWriter.println(person.getFirstName() + "," + person.getLastName() + "," + person.getSSN());
+		PrintWriter printWriter = new PrintWriter(fileWriter);
+
+		for (Person person : people)
+		{
+			printWriter.println(person.getFirstName() + ","
+					+ person.getLastName() + "," + person.getSSN());
 		}
 		printWriter.close();
 	}
 
 	/**
 	 * Add a person to the database
+	 * 
 	 * @param p
 	 */
 	public void addPerson(Person p)
 	{
 		Database.people.add(p);
-		try {
+		try
+		{
 			savePeopleDatabase(Database.people);
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			new ErrorDialog("Unable to save to database.");
 		}
 	}
 
 	/**
 	 * Remove a person from the database
+	 * 
 	 * @param p
 	 */
 	public void removePerson(Person p)
 	{
 		Database.people.remove(p);
-		try {
+		try
+		{
 			savePeopleDatabase(Database.people);
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			new ErrorDialog("Unable to save to database.");
 		}
 	}
 
 	/**
 	 * Retrieve all persons in the database
+	 * 
 	 * @return ArrayList<Person>
 	 */
 	public ArrayList<Person> getAllPersons()
@@ -112,6 +141,7 @@ public class Database
 
 	/**
 	 * Retrieve person object with matching ssn, el
+	 * 
 	 * @param ssn
 	 * @return Person if found, else null
 	 */
@@ -129,12 +159,13 @@ public class Database
 
 	/**
 	 * Return the names of people in the database
+	 * 
 	 * @return String[]
 	 */
 	public static String[] namesArray()
 	{
 		int personInc = 1;
-		nameArray = new String[people.size()+1];
+		nameArray = new String[people.size() + 1];
 		nameArray[0] = "None";
 		for (Person person : people)
 		{
@@ -147,6 +178,7 @@ public class Database
 
 	/**
 	 * Get the names of the people in the database
+	 * 
 	 * @return Hashtable<String, Person>
 	 */
 	public static Hashtable<String, Person> getNames()
@@ -161,41 +193,50 @@ public class Database
 
 	/**
 	 * Return all the products in the database
+	 * 
 	 * @return HashMap<String, ArrayList<Product>>
 	 */
 	public HashMap<String, ArrayList<Product>> getAllProducts()
 	{
 		return Database.products;
 	}
-	
+
 	/**
 	 * Add a product to the database of a type
+	 * 
 	 * @param type
 	 * @param product
 	 */
-	public void addProduct(String type, Product product) {
+	public void addProduct(String type, Product product)
+	{
 		Database.products.get(type).add(product);
 	}
-	
+
 	/**
 	 * Retrieve the number of products in the database
+	 * 
 	 * @return int
 	 */
-	public int getInventoryCount() {
+	public int getInventoryCount()
+	{
 		int count = 0;
-		
-		for (Map.Entry<String, ArrayList<Product>> set : Database.products.entrySet()) {
+
+		for (Map.Entry<String, ArrayList<Product>> set : Database.products
+				.entrySet())
+		{
 			count += set.getValue().size();
-           }
+		}
 		return count;
 	}
-	
+
 	/**
 	 * Retrieve all products of a type
+	 * 
 	 * @param type
 	 * @return ArrayList<Product>
 	 */
-	public ArrayList<Product> getProductForType(String type){
+	public ArrayList<Product> getProductForType(String type)
+	{
 		return Database.products.get(type);
 	}
 }
